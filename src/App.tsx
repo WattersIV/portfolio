@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   wrapper: {
-    maxWidth: '1000px',
+    maxWidth: '1200px',
     margin: 'auto',
   },
   landingBackground: {

@@ -35,7 +35,7 @@ export default function LandingPage () {
       <Typography variant='h1'>
         Bill Watters
       </Typography>
-      <div style={{ flexDirection: 'row', display: 'inline-flex' }}>
+      <div style={{ flexDirection: 'row', display: 'inline-flex', paddingRight: '300px', justifyContent: 'space-between' }}>
         <div className={classes.pictureContainer}>
           <img src={headshot} alt="Bill's Headshot" className={classes.headshotPic}/>
         </div>
@@ -44,9 +44,7 @@ export default function LandingPage () {
             I am a Web Developer based in Oakville, ON. 
             I specialize in making interactive web applications using React and Node.js. 
             <br />
-            <div >
-              <ContactButton />
-            </div>
+            <ContactButton />
           </Typography>
         </div>
       </div>
