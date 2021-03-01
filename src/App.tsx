@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
   wrapper: {
     maxWidth: '1200px',
     margin: 'auto',
+    display: 'flex', 
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   landingBackground: {
     backgroundColor: 'grey', 
