@@ -9,6 +9,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
   },
+  jobSelector: {
+    display: 'flex',
+    width: '100%',
+    paddingTop: '40px',
+    alignItems: 'flex-end',
+  },
 })) 
   
   
@@ -25,8 +31,14 @@ export default function WorkExperience () {
         <ExperinceButton name='Other Jobs'/>
         <ExperinceButton name='Volunteering'/>
       </div>
-      <SelectJob />
-      <JobInfo />
+      <div className={classes.jobSelector}>
+        <div>
+          <SelectJob />
+        </div>
+        <div>
+          <JobInfo />
+        </div>
+      </div>
       </>
   )
 }

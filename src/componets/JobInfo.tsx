@@ -4,13 +4,17 @@ import { theme } from '../App'
 
 
 const useStyles = makeStyles((theme) => ({
-
+  detailsPaper: {
+    height: '400px',
+    width: '800px',
+    marginLeft: '40px',
+  }
 }))
 
 export default function JobInfo () {
   const classes = useStyles(theme)
   return (
-    <Paper elevation={20}> 
+    <Paper elevation={20} className={classes.detailsPaper}> 
       <Typography variant='h3' color='primary'>
         Job Info Goes in here
       </Typography>

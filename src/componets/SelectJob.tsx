@@ -5,7 +5,7 @@ import { theme } from '../App'
 
 const useStyles = makeStyles((theme) => ({
   paperSpecs: {
-    height: '300px',
+    height: '350px',
     width: '200px',
     display: 'flex',
     alignSelf: 'baseline',
