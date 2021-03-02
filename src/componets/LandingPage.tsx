@@ -41,7 +41,7 @@ export default function LandingPage () {
         </div>
         <div className={classes.landingSummary}>
           <Typography variant='h3'>
-            I am a Web Developer based in Oakville, ON. 
+            I am a Web Developer based in Toronto, ON. 
             I specialize in making interactive web applications using React and Node.js. 
             <br />
             <ContactButton />

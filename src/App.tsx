@@ -1,5 +1,4 @@
 import React, { createContext } from 'react';
-import './App.css';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import NavBar from './componets/NavBar'
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const theme = createMuiTheme({
+export const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#000000',

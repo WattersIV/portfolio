@@ -30,7 +30,7 @@ export default function AboutMe () {
       <br />
       <div>
         <Typography variant='h4' align='center' color='primary'>
-        Hi there! I’m Bill, a Web Developer based in Oakville, ON.
+        Hi there! I’m Bill, a Web Developer based in Toronto, ON.
         </Typography>
         <br /> 
         <Typography variant='h4' align='center' color='primary'>
