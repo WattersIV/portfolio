@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core'
+import { ThemeProvider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import NavBar from './componets/NavBar'
 import LandingPage   from './componets/LandingPage'
@@ -7,6 +7,8 @@ import AboutMe from './componets/AboutMe'
 import WorkExperience from './componets/WorkExperience'
 import Projects from './componets/Projects'
 import Contact from './componets/Contact'
+import Footer from './componets/Footer'
+import { theme } from './theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,48 +28,6 @@ const useStyles = makeStyles((theme) => ({
     height: '60vh',
   },
 }))
-
-export const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#000000',
-      contrastText: '#fff',
-    }, 
-    secondary: {
-      main: '#0000ff',
-      contrastText: '#fff',
-    },
-    error: {
-      main: '#ff0000'
-    },
-  },
-  typography: {
-    h1: {
-      fontSize: '84px',
-      fontFamily: 'Calibre',
-    },
-    h2: {
-      fontSize: '48px',
-      fontFamily: 'Calibre',
-    },
-    h3: {
-      fontSize: '30px',
-      fontFamily: 'Calibre',
-    },
-    h4: {
-      fontSize: '18px',
-      fontFamily: 'Calibre',
-    },
-    subtitle1: {
-      fontSize: '16px',
-      fontFamily: 'Quantico',
-    },
-    subtitle2: {
-      fontSize: '14px',
-      fontFamily: 'Quantico',
-    },
-  },
-})
 
 export const Theme = createContext<{}> ({
   theme,
@@ -89,6 +49,7 @@ function App() {
           <WorkExperience />
           <Projects />
           <Contact />
+          <Footer />
         </div>
       </ThemeProvider>
     </div>

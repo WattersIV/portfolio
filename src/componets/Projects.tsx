@@ -1,13 +1,15 @@
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import Project from './Project'
+import { padding } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   projectsContainer: {
-    paddingTop: '50px',
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
+    paddingTop: `${padding}`,
+    paddingBottom: `${padding}`,
   },
 }))
 

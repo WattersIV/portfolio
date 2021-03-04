@@ -1,6 +1,6 @@
 import { Typography, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { theme } from '../App'
+import { theme } from '../theme/theme'
 
 
 const useStyles = makeStyles((theme) => ({

@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
+import { padding } from '../theme/theme'
 import SelectJob from './SelectJob'
 import JobInfo from './JobInfo'
 
@@ -12,9 +13,16 @@ const useStyles = makeStyles((theme) => ({
   jobSelector: {
     display: 'flex',
     width: '100%',
-    paddingTop: '40px',
     alignItems: 'flex-end',
   },
+  workExperienceWrapper: {
+    paddingTop: `${padding}`,
+    paddingBottom: `${padding}`,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    width: '100%',
+  }
 })) 
   
   
@@ -22,7 +30,7 @@ export default function WorkExperience () {
   const classes = useStyles()
 
   return (
-    <>
+    <div className={classes.workExperienceWrapper}>
       <Typography variant='h2' color='primary'>
         Work Experience
       </Typography>
@@ -39,6 +47,6 @@ export default function WorkExperience () {
           <JobInfo />
         </div>
       </div>
-      </>
+    </div>
   )
 }

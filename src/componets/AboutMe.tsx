@@ -1,8 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
+import { padding } from '../theme/theme'
+
 const useStyles = makeStyles((theme) => ({
   aboutMeContainer: {
     width: '70%',
+    paddingTop: `${padding}`,
+    paddingBottom: `${padding}`,
   },
   skillsContainer: {
     display: 'flex',

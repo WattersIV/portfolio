@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   button: {
     width: '200px',
-    marginTop: '25px',
+    marginTop: '50px',
   },
   buttonWrapper: {
     display: 'flex',
