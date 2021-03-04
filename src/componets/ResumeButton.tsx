@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Button } from '@material-ui/core'
+import resume from '../documents/resume.pdf'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -8,13 +9,14 @@ const useStyles = makeStyles((theme) => ({
     height: '40px',
   }
 })) 
-  
-  
+    
 export default function ResumeButton (props: any) {
   const classes = useStyles()
   return (
-    <Button className={classes.button} variant='contained' size='small' color='secondary'>
-      Resume
-    </Button>
+    <a href={resume} rel="noopener noreferrer" target="_blank">
+      <Button className={classes.button} variant='contained' size='small' color='secondary'>
+        Resume
+      </Button>
+    </a>
   )
 }
