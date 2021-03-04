@@ -27,7 +27,7 @@ export default function AboutMe () {
   const classes = useStyles()
 
   return (
-    <div className={classes.aboutMeContainer}>
+    <div className={classes.aboutMeContainer} id='about'>
       <Typography variant='h2' color='primary' align='center'>
         About me
       </Typography>
@@ -50,7 +50,7 @@ export default function AboutMe () {
           </Typography>
           <div className={classes.skillsList}> 
             <Typography variant='h4' color='primary'>
-            -JS/Typescript (ES7+)
+            -JS/Typescript
             </Typography>
             <Typography variant='h4' color='primary'>
               -React

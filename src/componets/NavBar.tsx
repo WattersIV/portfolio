@@ -4,6 +4,8 @@ import NavButton from './NavButton'
 import ResumeButton from './ResumeButton'
 import github from '../pictures/github-logo.svg'
 import linkedIn from '../pictures/linkedin-logo.svg'
+import { Link } from 'react-scroll'
+import { githubURL, linkedInURL} from '../config'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
     width: '20%',
+  },
+  imgScaling: {
+    maxWidth: '100%',
+    height: 'auto',
   }
 })) 
   
@@ -41,15 +47,27 @@ export default function NavBar () {
           <ResumeButton />
         </div>
         <div className={classes.scrollToButtons}>
-          <NavButton name='About' />
-          <NavButton name='Experience'/>
-          <NavButton name='My Work'/>
-          <NavButton name='Contact'/>
+          <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
+            <NavButton name='About' />
+          </Link>
+          <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700}>
+            <NavButton name='Experience'/>
+          </Link>
+          <Link activeClass="active" to="work" spy={true} smooth={true} duration={900}>
+            <NavButton name='My Work'/>
+          </Link>
+          <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100}>
+            <NavButton name='Contact'/>
+          </Link>
         </div>
       </div>
       <div className={classes.rightNav}>
-      <img src={linkedIn} alt="LinkedIn profile link" style={{ paddingRight: '10px' }}/>
-      <img src={github} alt="Github profile link" />
+      <a href={`${linkedInURL}`} style={{ maxHeight: '40px', maxWidth: '50px'}}>
+        <img className={classes.imgScaling} src={linkedIn} alt="LinkedIn profile link" style={{ paddingRight: '10px' }}/>
+      </a>
+      <a href={`${githubURL}`} style={{ maxHeight: '40px', maxWidth: '40px'}}>
+        <img className={classes.imgScaling} src={github} alt="Github profile link" />
+      </a>
       </div> 
     </div>
   )

@@ -30,7 +30,7 @@ export default function WorkExperience () {
   const classes = useStyles()
 
   return (
-    <div className={classes.workExperienceWrapper}>
+    <div className={classes.workExperienceWrapper} id='experience'>
       <Typography variant='h2' color='primary'>
         Work Experience
       </Typography>

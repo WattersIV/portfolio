@@ -19,7 +19,7 @@ export default function Contact () {
   const classes = useStyles()
 
   return (
-    <div className={classes.contactMeWrapper}>
+    <div className={classes.contactMeWrapper} id='contact'>
       <Typography color='primary' variant='h2'>
         Send Me a Message
       </Typography>

@@ -18,7 +18,7 @@ export default function Projects () {
   const classes = useStyles()
 
   return (
-    <div className={classes.projectsContainer}>
+    <div className={classes.projectsContainer} id='work'>
       <Typography variant='h2' color='primary' align='center'>
         Projects and Pages I've Built
       </Typography>
