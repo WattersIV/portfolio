@@ -2,8 +2,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
 import { padding } from '../theme/theme'
-import SelectJob from './SelectJob'
-import JobInfo from './JobInfo'
+import SelectJob from './SelectJobOld'
+import JobInfo from './JobInfoOld'
+import React, { useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
@@ -42,9 +43,6 @@ export default function WorkExperience () {
       <div className={classes.jobSelector}>
         <div>
           <SelectJob />
-        </div>
-        <div>
-          <JobInfo />
         </div>
       </div>
     </div>
