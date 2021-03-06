@@ -7,6 +7,7 @@ interface IJobs {
   title: string,
   start: string,
   end: string,
+  link?: string,
   keyPoints: string[],
 }
 
@@ -16,6 +17,7 @@ export const devJobs: IJobs[] = [
     title: 'Full Stack Developer Intern',
     start: 'Jan 2021',
     end: 'Mar 2021',
+    link: 'https://www.honeybeehub.io',
     keyPoints: [
       'Built a full stack referral system on the platform which created a large boost to the number of active users.',
       'Developed a new feature to facilitate the transfer of money on the web application between users.', 

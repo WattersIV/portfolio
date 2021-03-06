@@ -14,12 +14,18 @@ const useStyles = makeStyles((theme) => ({
  
 export default function ExperienceButton (props: any) {
   const classes = useStyles()
-  const { name } = props
+  const { name, setJobType, jobs } = props
   return (
     <div className={classes.buttonWrapper}>
-      <Fab variant='extended' size='large' className={classes.button} color='secondary'>
-        {name}
-      </Fab>
+      {jobs === name ? (
+        <Fab variant='extended' size='large' className={classes.button} color='primary' onClick={setJobType}>
+          {name}
+        </Fab>
+      ) : (
+        <Fab variant='extended' size='large' className={classes.button} color='secondary' onClick={setJobType}>
+          {name}
+        </Fab>
+      )}
     </div>
   )
 }
