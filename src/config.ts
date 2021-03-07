@@ -105,3 +105,32 @@ export const volunteering: IJobs[] = [
     ]
   }
 ]
+
+interface Project {
+  title: string,
+  description: string,
+  stack: string[],
+  githubURL: string,
+  link?: string,
+}
+
+export const projects: Project[] = [
+  {
+    title: 'Community Soccer',
+    description: "A web app to find soccer games in your community. This app allows for users to create, find and join soccer matches in their community. This app utilizes the players location to find events close to them and has chat functionailty.",
+    stack: ['Reactjs', 'Express', 'Nodejs', 'PostgreSQL'],
+    githubURL: 'https://github.com/WattersIV/community-sports',
+  },
+  {
+    title: 'Scheduler',
+    description: "A scheduling application that allows users to book interciews from a selected group of people. The app features a visualaltion of opening time slots throughout the day and week.",
+    stack: ['Reactjs', 'Express', 'Nodejs', 'PostgreSQL'],
+    githubURL: 'https://github.com/WattersIV/scheduler',
+  },
+  {
+    title: 'Jungle Rails',
+    description: "An ecommerce platform that uses stripe for buying and selling items. Owners are able to log into an admin portal to change prices and items. ",
+    stack: ['HTML', 'CSS', 'Ruby on Rails'],
+    githubURL: 'https://github.com/WattersIV/jungle-rails',
+  }
+]
