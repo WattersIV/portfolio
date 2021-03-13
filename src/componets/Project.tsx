@@ -8,12 +8,17 @@ import schedulerPic from '../pictures/schedulerImg.png'
 const useStyles = makeStyles((theme) => ({
   projectCard: {
     display: 'flex',
+    justifyContent: 'flex-end',
   },
   projectContainer: {
     paddingTop: '30px',
     display: 'flex',
     justifyContent: 'space-between',
-    maxHeight: '450px',
+    maxHeight: '550px',
+  },
+  picture: {
+    maxHeight: '550px',
+    maxWidth: '696px',
   },
 }))
 
@@ -30,7 +35,7 @@ export default function Project (props: any) {
     <div className={classes.projectContainer}>
       <ProjectDetails inverse={inverse} project={project}/>
       <div className={classes.projectCard} >
-        <img src={projectPicture} alt={`${project.title} image`} />
+        <img src={projectPicture} alt={`${project.title} image`} className={classes.picture}/>
       </div>
     </div>
   )
