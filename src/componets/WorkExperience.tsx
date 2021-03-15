@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
-import { padding } from '../theme/theme'
+import { sectionPadding, titlePadding } from '../theme/theme'
 import SelectJob from './SelectJobOld'
 import JobInfo from './JobInfoOld'
 import React, { useState } from 'react'
@@ -18,13 +18,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-end',
   },
   workExperienceWrapper: {
-    paddingTop: `${padding}`,
-    paddingBottom: `${padding}`,
+    paddingTop: `${sectionPadding}`,
+    paddingBottom: `${sectionPadding}`,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-  }
+  }, 
+  title: {
+    paddingBottom: `${titlePadding}`,
+  },
 })) 
   
   
@@ -33,7 +36,7 @@ export default function WorkExperience () {
   const [jobType, setJobType] = useState('Dev Jobs')
   return (
     <div className={classes.workExperienceWrapper} id='experience'>
-      <Typography variant='h2' color='primary'>
+      <Typography variant='h2' color='primary' className={classes.title}>
         Work Experience
       </Typography>
       <div className={classes.buttonWrapper}>

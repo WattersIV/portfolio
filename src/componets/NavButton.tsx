@@ -15,7 +15,7 @@ export default function NavButton (props: any) {
   const classes = useStyles()
   const { name } = props
   return (
-    <Button className={classes.button} variant='contained' size='small' color='secondary'>
+    <Button className={classes.button}  size='small' color='secondary'>
       {name}
     </Button>
   )

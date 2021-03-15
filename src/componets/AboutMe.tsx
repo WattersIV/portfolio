@@ -1,12 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
-import { padding } from '../theme/theme'
+import { sectionPadding, titlePadding } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   aboutMeContainer: {
     width: '70%',
-    paddingTop: `${padding}`,
-    paddingBottom: `${padding}`,
+    paddingTop: `${sectionPadding}`,
+    paddingBottom: `${sectionPadding}`,
   },
   skillsContainer: {
     display: 'flex',
@@ -19,7 +19,10 @@ const useStyles = makeStyles((theme) => ({
   skillsList: {
     display: 'flex',
     flexDirection: 'column',
-  }
+  },
+  title: {
+    paddingBottom: `${titlePadding}`,
+  },
 }))
  
   
@@ -28,10 +31,9 @@ export default function AboutMe () {
 
   return (
     <div className={classes.aboutMeContainer} id='about'>
-      <Typography variant='h2' color='primary' align='center'>
+      <Typography variant='h2' color='primary' align='center' className={classes.title}>
         About me
       </Typography>
-      <br />
       <div>
         <Typography variant='h4' align='center' color='primary'>
         Hi there! I’m Bill, a Web Developer based in Toronto, ON.

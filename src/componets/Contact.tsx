@@ -1,17 +1,20 @@
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ContactButton from './ContactButton'
-import { padding } from '../theme/theme'
+import { sectionPadding, titlePadding } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   sendMsgText: {
-    maxWidth: '500px',
+    maxWidth: '600px',
     paddingTop: '20px',
   },
   contactMeWrapper: {
-    paddingTop: `${padding}`,
-    paddingBottom: `${padding}`,
-  }
+    paddingTop: `${sectionPadding}`,
+    paddingBottom: `${sectionPadding}`,
+  },
+  title: {
+    paddingBottom: `${titlePadding}`,
+  },
 }))
 
 
@@ -20,7 +23,7 @@ export default function Contact () {
 
   return (
     <div className={classes.contactMeWrapper} id='contact'>
-      <Typography color='primary' variant='h2'>
+      <Typography color='primary' variant='h2' align='center' className={classes.title}>
         Send Me a Message
       </Typography>
       <Typography className={classes.sendMsgText} color='primary' variant='h3'>

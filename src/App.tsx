@@ -1,13 +1,13 @@
 import React, { createContext } from 'react';
 import { ThemeProvider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import NavBar from './componets/NavBar'
 import LandingPage   from './componets/LandingPage'
 import AboutMe from './componets/AboutMe'
 import WorkExperience from './componets/WorkExperience'
 import Projects from './componets/Projects'
 import Contact from './componets/Contact'
 import Footer from './componets/Footer'
+import NavBar from './componets/NavBar'
 import { theme } from './theme/theme'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   landingBackground: {
-    backgroundColor: 'grey', 
+    //backgroundColor: 'grey', 
     height: '60vh',
   },
 }))
@@ -33,13 +33,14 @@ export const Theme = createContext<{}> ({
   theme,
 })
 
+
 function App() {
   const classes = useStyles()
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
-        <div className={classes.landingBackground} style={{ backgroundColor: 'grey', height: '60vh' }}>
-            <NavBar />
+        <div className={classes.landingBackground} >
+          <NavBar />
           <div className={classes.wrapper}>
             <LandingPage />
           </div>
