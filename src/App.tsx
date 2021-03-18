@@ -8,6 +8,8 @@ import Projects from './componets/Projects'
 import Contact from './componets/Contact'
 import Footer from './componets/Footer'
 import NavBar from './componets/NavBar'
+import img from './pictures/greenBackground.jpg'
+import grayGreen from './pictures/grayGreen.jpg'
 import { theme } from './theme/theme'
 
 const useStyles = makeStyles((theme) => ({
@@ -24,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   landingBackground: {
-    //backgroundColor: 'grey', 
+    backgroundImage: `url(${img})`,
+    backgroundSize: '100vw',
     height: '60vh',
   },
 }))
@@ -39,7 +42,7 @@ function App() {
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
-        <div className={classes.landingBackground} >
+        <div className={classes.landingBackground}>
           <NavBar />
           <div className={classes.wrapper}>
             <LandingPage />
