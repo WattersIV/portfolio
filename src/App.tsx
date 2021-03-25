@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   landingBackground: {
     backgroundImage: `url(${img})`,
     backgroundSize: '100vw',
-    height: '60vh',
+    height: '50vh',
   },
 }))
 
@@ -38,7 +38,7 @@ export const Theme = createContext<{}> ({
 
 
 function App() {
-  const classes = useStyles()
+  const classes = useStyles(theme)
   return (
     <div className={classes.root}>
       <ThemeProvider theme={theme}>
@@ -48,12 +48,14 @@ function App() {
             <LandingPage />
           </div>
         </div>
-        <div className={classes.wrapper} >
-          <AboutMe />
-          <WorkExperience />
-          <Projects />
-          <Contact />
-          <Footer />
+        <div style={{backgroundColor: theme.palette.primary.dark}}>
+          <div className={classes.wrapper} >
+            <AboutMe />
+            <WorkExperience />
+            <Projects />
+            <Contact />
+            <Footer />
+          </div>
         </div>
       </ThemeProvider>
     </div>

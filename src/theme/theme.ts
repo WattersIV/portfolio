@@ -12,8 +12,9 @@ export const theme = createMuiTheme({
       contrastText: '#fff',
     }, 
     secondary: {
-      dark: '#61892F',
-      main: '#86C232',
+      dark: '#075106',
+      main: '#37b900',
+      light: '#8be001',
       contrastText: '#fff',
     },
     error: {

@@ -9,17 +9,17 @@ const useStyles = makeStyles((theme) => ({
     width: '100px',
     height: '40px',
     marginLeft: '10px',
-    border: '1px black solid'
+    backgroundColor: `${theme.palette.primary.main}`,
   },
-})) 
-    
-export default function ResumeButton (props: any) {
+}))
+
+export default function ResumeButton(props: any) {
   const classes = useStyles(theme)
   return (
-    <a href={resume} rel="noopener noreferrer" target="_blank">
-      <Button className={classes.button} variant='contained' size='small' color='primary' >
+    <a href={resume} rel="noopener noreferrer" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
+      <Typography color='textSecondary' variant='subtitle1' style={{ fontWeight: 'bold' }}>
         Resume
-      </Button>
+      </Typography>
     </a>
   )
 }

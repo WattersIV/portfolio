@@ -5,7 +5,11 @@ import ResumeButton from './ResumeButton'
 import github from '../pictures/github-logo.svg'
 import linkedIn from '../pictures/linkedin-logo.svg'
 import { Link } from 'react-scroll'
-import { githubURL, linkedInURL} from '../config'
+import { githubURL, linkedInURL } from '../config'
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { theme } from '../theme/theme'
+import useWindowSize from '../hooks/useWindowSize'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -15,18 +19,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     position: 'fixed',
     top: '0',
+    justifyContent: 'space-between',
+    backgroundColor: `${theme.palette.secondary.main}`,
   },
   resume: {
     display: 'flex',
   },
   scrollToButtons: {
     display: 'flex',
-  },
-  leftNav: {
-    height: '100%',
-    width: '75%',
-    display: 'flex',
-    justifyContent: 'space-between'
   },
   rightNav: {
     display: 'flex',
@@ -36,8 +36,11 @@ const useStyles = makeStyles((theme) => ({
   imgScaling: {
     maxWidth: '100%',
     height: 'auto',
+  },
+  socials: {
+    display: 'flex',
   }
-})) 
+}))
 
 function HideOnScroll(props: any) {
   const { children } = props;
@@ -49,13 +52,14 @@ function HideOnScroll(props: any) {
     </Slide>
   );
 }
-  
-export default function NavBar (props: any) {
-  const classes = useStyles()
+
+export default function NavBar(props: any) {
+  const classes = useStyles(theme)
+  const { width } = useWindowSize()
   return (
     <HideOnScroll {...props}>
       <div className={classes.navBarContainer}>
-        <div className={classes.leftNav}>
+        <div id='wrapper' style={{ maxWidth: '1200px', display: 'flex', justifyContent: 'space-between', width: '100%', margin: 'auto' }} >
           <div className={classes.resume}>
             <ResumeButton />
           </div>
@@ -64,24 +68,24 @@ export default function NavBar (props: any) {
               <NavButton name='About' />
             </Link>
             <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700}>
-              <NavButton name='Experience'/>
+              <NavButton name='Experience' />
             </Link>
             <Link activeClass="active" to="work" spy={true} smooth={true} duration={900}>
-              <NavButton name='My Work'/>
+              <NavButton name='My Work' />
             </Link>
             <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100}>
-              <NavButton name='Contact'/>
+              <NavButton name='Contact' />
             </Link>
           </div>
+          <div className={classes.socials}>
+            <a href={`${linkedInURL}`} >
+              <LinkedInIcon style={{ fill: 'black', height: '100%', fontSize: 'xx-large' }} />
+            </a>
+            <a href={`${githubURL}`} >
+              <GitHubIcon style={{ fill: 'black', height: '100%', fontSize: '27px', marginLeft: '10px' }} />
+            </a>
+          </div>
         </div>
-        <div className={classes.rightNav}>
-        <a href={`${linkedInURL}`} style={{ maxHeight: '40px', maxWidth: '50px'}}>
-          <img className={classes.imgScaling} src={linkedIn} alt="LinkedIn profile link" style={{ paddingRight: '10px' }}/>
-        </a>
-        <a href={`${githubURL}`} style={{ maxHeight: '40px', maxWidth: '40px'}}>
-          <img className={classes.imgScaling} src={github} alt="Github profile link" />
-        </a>
-        </div> 
       </div>
     </HideOnScroll>
   )

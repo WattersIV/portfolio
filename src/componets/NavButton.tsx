@@ -16,7 +16,9 @@ export default function NavButton (props: any) {
   const { name } = props
   return (
     <Button className={classes.button}  size='small' color='primary'>
-      {name}
+      <Typography color='textSecondary' variant='subtitle1' >
+        {name}
+      </Typography>
     </Button>
   )
 }
