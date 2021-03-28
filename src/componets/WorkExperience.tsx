@@ -6,6 +6,7 @@ import SelectJob from './SelectJobOld'
 import JobInfo from './JobInfoOld'
 import React, { useState } from 'react'
 import VerticalTabs from './SelectJob'
+import { theme } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
@@ -27,16 +28,17 @@ const useStyles = makeStyles((theme) => ({
   }, 
   title: {
     paddingBottom: `${titlePadding}`,
+    color: `${theme.palette.primary.contrastText}`,
   },
 })) 
   
   
 export default function WorkExperience () {
-  const classes = useStyles()
+  const classes = useStyles(theme)
   const [jobType, setJobType] = useState('Dev Jobs')
   return (
     <div className={classes.workExperienceWrapper} id='experience'>
-      <Typography variant='h2' color='primary' className={classes.title}>
+      <Typography variant='h2' className={classes.title}>
         Work Experience
       </Typography>
       <div className={classes.buttonWrapper}>

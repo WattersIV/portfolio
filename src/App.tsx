@@ -1,5 +1,4 @@
-import React, { createContext } from 'react';
-import { ThemeProvider } from '@material-ui/core'
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import LandingPage   from './componets/LandingPage'
 import AboutMe from './componets/AboutMe'
@@ -8,8 +7,6 @@ import Projects from './componets/Projects'
 import Contact from './componets/Contact'
 import Footer from './componets/Footer'
 import NavBar from './componets/NavBar'
-import img from './pictures/greenBackground.jpg'
-import grayGreen from './pictures/grayGreen.jpg'
 import { theme } from './theme/theme'
 
 const useStyles = makeStyles((theme) => ({
@@ -26,29 +23,27 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   landingBackground: {
-    backgroundImage: `url(${img})`,
+    backgroundColor: `${theme.palette.primary.main}`,
     backgroundSize: '100vw',
     height: '50vh',
   },
 }))
 
-export const Theme = createContext<{}> ({
-  theme,
-})
+
 
 
 function App() {
   const classes = useStyles(theme)
   return (
     <div className={classes.root}>
-      <ThemeProvider theme={theme}>
+      
         <div className={classes.landingBackground}>
           <NavBar />
           <div className={classes.wrapper}>
             <LandingPage />
           </div>
         </div>
-        <div style={{backgroundColor: theme.palette.primary.dark}}>
+        <div style={{backgroundColor: theme.palette.primary.main}}>
           <div className={classes.wrapper} >
             <AboutMe />
             <WorkExperience />
@@ -57,7 +52,6 @@ function App() {
             <Footer />
           </div>
         </div>
-      </ThemeProvider>
     </div>
   );
 }

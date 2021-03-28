@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
   descriptionCard: {
     maxWidth: '400px',
   },
+  brightText: {
+    color: `${theme.palette.primary.contrastText}`,
+  }
 }))
 
 
@@ -30,22 +33,22 @@ export default function ProjectDetails (props: any) {
   const { inverse, project } = props
   return (
     <div className={classes.descriptionContainer} style={inverse? {order: 2} : {} }>
-      <Typography color='primary' variant='h3' align='center'>
+      <Typography color='textPrimary' variant='h3' align='center' className={classes.brightText}>
         {project.title}
       </Typography>
       <Paper elevation={5} className={classes.descriptionCard}>
-        <Typography color='primary' variant='h4' className={classes.description}>
+        <Typography color='textSecondary' variant='h4' className={classes.description}>
           {project.description}
         </Typography>
       </Paper>
       <div className={classes.techStackContainer}>
-        <Typography color='primary' variant='h4'>
+        <Typography color='textPrimary' variant='h4'>
           Tech Stack
         </Typography>
         <div className={classes.techStack}>
           {project.stack.map((tech: any) => {
             return (
-              <Typography color='primary' variant='subtitle1'>
+              <Typography color='textPrimary' variant='subtitle1'>
                 {tech}
               </Typography> 
             )

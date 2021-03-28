@@ -5,6 +5,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { devJobs, otherJobs, volunteering} from '../config'
+import { theme } from '../theme/theme'
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -53,10 +54,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRight: `1px solid ${theme.palette.divider}`,
     minWidth: '250px',
   },
+  blackText: {
+    color: `${theme.palette.secondary.contrastText}`,
+  },
+  companyLink: {
+    display: 'inline',
+  }
 }));
 
 export default function VerticalTabs({jobs}: any) {
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const [value, setValue] = React.useState(0);
   const jobsToRender = jobs === 'Dev Jobs' 
   ? devJobs 
@@ -81,31 +88,36 @@ export default function VerticalTabs({jobs}: any) {
       >
         {jobsToRender.map((job, index) => {
           return (
-            <Tab label={job.company} {...a11yProps(index)} />
+            <Tab 
+            label={job.company} 
+            {...a11yProps(index)} 
+            textColor="secondary"/>
           )
         })}
       </Tabs>
       {jobsToRender.map((job, index) => {
         return (
         <TabPanel value={value} index={index}>
-          <Typography color='primary' variant='h3' align='center'>
+          <Typography className={classes.blackText} variant='h3' align='center' style={{ fontWeight: 'bold' }}>
             {job.title} at {' '}
             {job.link ? (
             <a href={`${job.link}`} target="_blank" rel="noreferrer">
-              {job.company}
+              <Typography className={classes.companyLink} variant='h3' align='center' >
+                {job.company}
+              </Typography>
             </a>
             ) : (
               job.company
             )} 
           </Typography>
-          <Typography color='primary' variant='subtitle1' align='center'>
+          <Typography className={classes.blackText} variant='subtitle1' align='center'>
             {job.start} - {job.end}
           </Typography>
           <br />
           <br />
           {job.keyPoints.map((point) => {
             return (
-              <Typography variant='h4' color='primary' align='left'>
+              <Typography className={classes.blackText} variant='h4' align='left'>
                 - {point}
                 <br />
                 <br />
