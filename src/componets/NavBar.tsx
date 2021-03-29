@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     top: '0',
     justifyContent: 'space-between',
-    backgroundColor: `${theme.palette.secondary.main}`,
+    backgroundColor: `${theme.palette.primary.main}`,
   },
   resume: {
     display: 'flex',
@@ -79,10 +79,10 @@ export default function NavBar(props: any) {
           </div>
           <div className={classes.socials}>
             <a href={`${linkedInURL}`} >
-              <LinkedInIcon style={{ fill: 'black', height: '100%', fontSize: 'xx-large' }} />
+              <LinkedInIcon style={{ fill: 'white', height: '100%', fontSize: 'xx-large' }} />
             </a>
             <a href={`${githubURL}`} >
-              <GitHubIcon style={{ fill: 'black', height: '100%', fontSize: '27px', marginLeft: '10px' }} />
+              <GitHubIcon style={{ fill: 'white', height: '100%', fontSize: '27px', marginLeft: '10px' }} />
             </a>
           </div>
         </div>

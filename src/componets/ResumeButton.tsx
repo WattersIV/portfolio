@@ -11,14 +11,17 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: '10px',
     backgroundColor: `${theme.palette.primary.main}`,
   },
+  resumeText: {
+    color: `${theme.palette.primary.contrastText}`,
+  }
 }))
 
 export default function ResumeButton(props: any) {
   const classes = useStyles(theme)
   return (
     <a href={resume} rel="noopener noreferrer" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
-      <Typography color='textSecondary' variant='subtitle1' style={{ fontWeight: 'bold' }}>
-        Resume
+      <Typography className={classes.resumeText} variant='subtitle1' >
+        RESUME
       </Typography>
     </a>
   )
