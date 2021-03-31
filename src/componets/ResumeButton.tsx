@@ -20,7 +20,7 @@ export default function ResumeButton(props: any) {
   const classes = useStyles(theme)
   return (
     <a href={resume} rel="noopener noreferrer" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
-      <Typography className={classes.resumeText} variant='subtitle1' >
+      <Typography className={classes.resumeText} variant='h4' >
         RESUME
       </Typography>
     </a>

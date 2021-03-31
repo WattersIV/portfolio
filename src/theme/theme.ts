@@ -6,15 +6,15 @@ export const titlePadding = '35px'
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      dark: '#34414e',
+      dark: '#040c16',
       main: '#0a192f',
-      light: '#416284',
+      light: '#205fac',
       contrastText: '#fff',
     }, 
     secondary: {
-      dark: '#075106',
-      main: '#33ffd6',
-      light: '#8be001',
+      dark: '#00997a',
+      main: '#00ffcc',
+      light: '#66ffe0',
       contrastText: '#000000',
     },
     error: {
@@ -22,7 +22,7 @@ export const theme = createMuiTheme({
     },
     text: {
       primary: '#d0dae1',
-      secondary: '#000000',
+      secondary: '#c1ced7',
     },
   },
   typography: {

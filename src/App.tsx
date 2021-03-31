@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   landingBackground: {
     backgroundColor: `${theme.palette.primary.main}`,
     backgroundSize: '100vw',
-    height: '50vh',
+    height: '60vh',
   },
 }))
 

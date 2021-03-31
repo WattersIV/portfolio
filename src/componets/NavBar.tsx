@@ -14,7 +14,7 @@ import useWindowSize from '../hooks/useWindowSize'
 
 const useStyles = makeStyles((theme) => ({
   navBarContainer: {
-    height: '40px',
+    height: '80px',
     width: '100vw',
     display: 'flex',
     position: 'fixed',
@@ -39,8 +39,25 @@ const useStyles = makeStyles((theme) => ({
   },
   socials: {
     display: 'flex',
-  }
-}))
+  },
+  linkedIn: {
+    fill: 'white',
+    height: '100%', 
+    fontSize: 'xxx-large',
+    '&:hover': {
+      fill: `${theme.palette.secondary.main}`,
+    },
+  },
+  github: {
+    fill: 'white', 
+    height: '100%', 
+    fontSize: '40px', 
+    marginLeft: '10px',
+    '&:hover' : {
+      fill: `${theme.palette.secondary.main}`,
+    },
+  },
+  }))
 
 function HideOnScroll(props: any) {
   const { children } = props;
@@ -63,7 +80,7 @@ export default function NavBar(props: any) {
           <div className={classes.resume}>
             <ResumeButton />
           </div>
-          <div className={classes.scrollToButtons}>
+          <div id='scrollButtons' className={classes.scrollToButtons}>
             <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
               <NavButton name='About' />
             </Link>
@@ -79,10 +96,10 @@ export default function NavBar(props: any) {
           </div>
           <div className={classes.socials}>
             <a href={`${linkedInURL}`} >
-              <LinkedInIcon style={{ fill: 'white', height: '100%', fontSize: 'xx-large' }} />
+              <LinkedInIcon className={classes.linkedIn} />
             </a>
             <a href={`${githubURL}`} >
-              <GitHubIcon style={{ fill: 'white', height: '100%', fontSize: '27px', marginLeft: '10px' }} />
+              <GitHubIcon className={classes.github} />
             </a>
           </div>
         </div>
