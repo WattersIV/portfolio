@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   brightText: {
     color: `${theme.palette.primary.contrastText}`,
+  },
+  aboutMeText: {
+    color: `${theme.palette.text.primary}`,
   }
 }))
  
@@ -40,19 +43,20 @@ export default function AboutMe () {
         About me
       </Typography>
       <div>
-        <Typography variant='h4' align='center' color='textPrimary'>
+        <Typography variant='h3' align='center' className={classes.aboutMeText}>
         Hi there! I’m Bill, a Web Developer based in Toronto, ON.
         </Typography>
         <br /> 
-        <Typography variant='h4' align='center' color='textPrimary'>
+        <Typography variant='h3' align='center' className={classes.aboutMeText}>
           Shortly after graduating with a B.A. in Sociology from Brock University, I was introduced to software development and my life changed. I fell in love with the complexity and problem solving presented in the challenges of coding.
         </Typography>
         <br />
-        <Typography variant='h4' align='center' color='textPrimary'>
+        <Typography variant='h3' align='center' className={classes.aboutMeText}>
           I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. After graduating from the bootcamp, I recieved an internship oppertunity at Honeybeehub where I was able to develop many features used on the website today.  
         </Typography>
         <div className={classes.skillsContainer}>
-          <Typography variant='h4' className={classes.brightText}>
+          {/* Make these Tiles that jump or something when you hover and add a logo for each */}
+          <Typography variant='h3' className={classes.brightText}>
             My Current Skills Include:
           </Typography>
           <div className={classes.skillsList}> 

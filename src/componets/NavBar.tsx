@@ -2,8 +2,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Slide, useScrollTrigger } from '@material-ui/core'
 import NavButton from './NavButton'
 import ResumeButton from './ResumeButton'
-import github from '../pictures/github-logo.svg'
-import linkedIn from '../pictures/linkedin-logo.svg'
 import { Link } from 'react-scroll'
 import { githubURL, linkedInURL } from '../config'
 import LinkedInIcon from '@material-ui/icons/LinkedIn';

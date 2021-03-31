@@ -19,8 +19,8 @@ export const devJobs: IJobs[] = [
     end: 'Mar 2021',
     link: 'https://www.honeybeehub.io',
     keyPoints: [
-      'Built a full stack referral system on the platform which created a large boost to the number of active users.',
-      'Developed a new feature to facilitate the transfer of money on the web application between users.', 
+      'Lead the front end development for a referral system which generated a 36% increase in active users.',
+      'Developed a new full stack feature to facilitate the transfer of money on the web application between users.', 
       'Redesigned and optimized the login and authorization systems on the front and back end.'
     ]
   }

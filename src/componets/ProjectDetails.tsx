@@ -36,6 +36,8 @@ export default function ProjectDetails (props: any) {
       <Typography color='textPrimary' variant='h3' align='center' className={classes.brightText}>
         {project.title}
       </Typography>
+      {/* Make the card closer to the background color and add an arrow like point at the picture */}
+      {/* Add Links to code on github */}
       <Paper elevation={5} className={classes.descriptionCard}>
         <Typography color='textSecondary' variant='h4' className={classes.description}>
           {project.description}

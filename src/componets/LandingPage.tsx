@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
   nameAndPicture: {
     display: 'flex',
     flexDirection: 'column',
+  },
+  aboutMe: {
+    width: '500px',
+    color: `${theme.palette.text.primary}`,
   }
 }))
 
@@ -51,7 +55,7 @@ export default function LandingPage() {
         </div>
       </div>
       <div className={classes.landingSummary}>
-        <Typography variant='h3' color='textPrimary' style={{ width: '500px' }}>
+        <Typography variant='h3' className={classes.aboutMe} >
           I am a Web Developer based in Toronto, ON.
           I specialize in making interactive web applications using React and Node.js.
             <br />
