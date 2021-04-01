@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import { sectionPadding, titlePadding } from '../theme/theme'
 import { theme } from '../theme/theme'
+import LanguageTiles from './LanguageTiles'
 
 const useStyles = makeStyles((theme) => ({
   aboutMeContainer: {
@@ -59,6 +60,7 @@ export default function AboutMe () {
           <Typography variant='h3' className={classes.brightText}>
             My Current Skills Include:
           </Typography>
+          <LanguageTiles />
           <div className={classes.skillsList}> 
             <Typography variant='h4' color='textPrimary'>
             -JS/Typescript
