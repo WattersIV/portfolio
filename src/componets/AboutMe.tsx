@@ -61,29 +61,6 @@ export default function AboutMe () {
             My Current Skills Include:
           </Typography>
           <LanguageTiles />
-          <div className={classes.skillsList}> 
-            <Typography variant='h4' color='textPrimary'>
-            -JS/Typescript
-            </Typography>
-            <Typography variant='h4' color='textPrimary'>
-              -React
-            </Typography>
-            <Typography variant='h4' color='textPrimary'>
-              -Node.js
-            </Typography>
-            <Typography variant='h4' color='textPrimary'>
-              -HTML {'&'} CSS
-            </Typography>
-            <Typography variant='h4' color='textPrimary'>
-              -Express
-            </Typography>
-            <Typography variant='h4' color='textPrimary'>
-              -MongoDB   
-            </Typography>
-            <Typography variant='h4' color='textPrimary'>
-              -SQL   
-            </Typography>
-          </div>
         </div>
       </div> 
     </div>

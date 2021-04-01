@@ -134,3 +134,51 @@ export const projects: Project[] = [
     githubURL: 'https://github.com/WattersIV/jungle-rails',
   }
 ]
+
+interface ISkills {
+  icon: string,
+  title: string
+}
+
+export const skills: ISkills[] = [
+  {
+    icon: '',
+    title: 'JS/Typescript ES6+'
+  },
+  {
+    icon: '',
+    title: 'JS/Typescript ES6+'
+  },
+  {
+    icon: '',
+    title: 'React'
+  },
+  {
+    icon: '',
+    title: 'Node.js'
+  },
+  {
+    icon: '',
+    title: 'Ruby'
+  },
+  {
+    icon: '',
+    title: 'CSS'
+  },
+  {
+    icon: '',
+    title: 'HTML'
+  },
+  {
+    icon: '',
+    title: 'Express'
+  },
+  {
+    icon: '',
+    title: 'MongoDB'
+  },
+  {
+    icon: '',
+    title: 'SQL'
+  },
+]
