@@ -55,7 +55,7 @@ export default function AboutMe () {
         </Typography>
         <div className={classes.skillsContainer}>
           {/* Make these Tiles that jump or something when you hover and add a logo for each */}
-          <Typography variant='h3' className={classes.brightText} align='center' >
+          <Typography variant='h3' className={classes.aboutMeText} align='center'>
             Here are some of my skills
           </Typography>
             <LanguageTiles />

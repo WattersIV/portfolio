@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core'
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     paper: {
-      height: 100,
+      height: 140,
       width: 120,
       backgroundColor: 'transparent',
       display: 'flex',
@@ -23,31 +23,37 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(2),
     },
     skill: {
-      color: `${theme.palette.secondary.contrastText}`,
+      color: `${theme.palette.primary.contrastText}`,
       display: 'flex',
       justifyContent: 'center',
     },
     skillIcon: {
-      height: '100%',
+      height: '100px',
       width: '100%',
       mixBlendMode: 'screen',
-    }
+      '&:hover': {
+        transform: 'translateY(-8px)',
+      },
+    },
   }),
 );
 
 export default function LanguageTiles() {
   const classes = useStyles(theme);
+  const [showText, setShowText] = useState("")
 
   return (
-    <Grid container justify="center" spacing={0}>
+    <Grid container justify="center" spacing={0} style={{ marginTop: '15px' }}>
       {skills.map((skill, index) => (
-        <Grid item key={index} xs={4}>
+        <Grid item key={index} xs={4} style={{ height: '140px' }}>
           <div className={classes.paper}>
             <>
-              <img src={skill.icon} alt={`${skill.title} Icon`} className={classes.skillIcon}/>
-              {/* <Typography variant='h4' className={classes.skill}>
+              <img src={skill.icon} alt={`${skill.title} Icon`} className={classes.skillIcon} onMouseOver={() => setShowText(skill.title)} onMouseLeave={() => setShowText("")}/>
+              {showText === skill.title && 
+              <Typography variant='h4' className={classes.skill} 
+              style={skill.title === 'Ruby on Rails' ? { marginTop: '-10px' } : { marginTop: '-5px' } }>
                 {skill.title}
-              </Typography> */}
+              </Typography>}
             </>
           </div>
         </Grid>
