@@ -46,20 +46,25 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    //backgroundColor: theme.palette.background.paper,
     display: 'flex',
     height: '400px',
+    backgroundColor: 'transparent',
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
     minWidth: '250px',
   },
-  blackText: {
-    color: `${theme.palette.secondary.contrastText}`,
+  whiteText: {
+    color: `${theme.palette.text.primary}`,
   },
   companyLink: {
     display: 'inline',
-  }
+    color: `${theme.palette.secondary.light}`,
+  },
+  grayText: {
+    color: `${theme.palette.text.secondary}`,
+  },
 }));
 
 export default function VerticalTabs({jobs}: any) {
@@ -91,14 +96,14 @@ export default function VerticalTabs({jobs}: any) {
             <Tab 
             label={job.company} 
             {...a11yProps(index)} 
-            textColor="secondary"/>
+            className={classes.grayText}/>
           )
         })}
       </Tabs>
       {jobsToRender.map((job, index) => {
         return (
         <TabPanel value={value} index={index}>
-          <Typography className={classes.blackText} variant='h3' align='center' style={{ fontWeight: 'bold' }}>
+          <Typography className={classes.whiteText} variant='h3' align='center' style={{ fontWeight: 'bold' }}>
             {job.title} at {' '}
             {job.link ? (
             <a href={`${job.link}`} target="_blank" rel="noreferrer">
@@ -110,14 +115,14 @@ export default function VerticalTabs({jobs}: any) {
               job.company
             )} 
           </Typography>
-          <Typography className={classes.blackText} variant='subtitle1' align='center'>
+          <Typography className={classes.whiteText} variant='subtitle1' align='center'>
             {job.start} - {job.end}
           </Typography>
           <br />
           <br />
           {job.keyPoints.map((point) => {
             return (
-              <Typography className={classes.blackText} variant='h4' align='left'>
+              <Typography className={classes.whiteText} variant='h4' align='left'>
                 - {point}
                 <br />
                 <br />

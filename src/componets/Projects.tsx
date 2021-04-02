@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     paddingBottom: `${titlePadding}`,
+    color: `${theme.palette.primary.contrastText}`,
   },
 }))
 
@@ -22,7 +23,7 @@ export default function Projects () {
   const classes = useStyles()
   return (
     <div className={classes.projectsContainer} id='work'>
-      <Typography variant='h2' color='primary' align='center' className={classes.title}>
+      <Typography variant='h2'  align='center' className={classes.title}>
         Projects I've Built
       </Typography>
       {projects.map((project, index) => {

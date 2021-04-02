@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     top: '0',
     justifyContent: 'space-between',
     backgroundColor: `${theme.palette.primary.main}`,
+    zIndex: 99,
   },
   resume: {
     display: 'flex',

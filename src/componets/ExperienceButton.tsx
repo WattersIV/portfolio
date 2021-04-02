@@ -1,20 +1,24 @@
-import { Fab, Typography } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { theme } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    width: '200px',
+    marginRight: '10px',
+    width: '150px',
     marginTop: '25px',
+    zIndex: 2,
   },
   buttonWrapper: {
     display: 'flex',
     justifyContent: 'center',
   },
   buttonSelected: {
-    width: '200px',
+    marginRight: '10px',
+    width: '150px',
     marginTop: '25px',
     border: `2px ${theme.palette.primary.contrastText} solid`,
+    zIndex: 2,
   },
 }))
  
@@ -24,13 +28,13 @@ export default function ExperienceButton (props: any) {
   return (
     <div className={classes.buttonWrapper}>
       {jobs === name ? (
-        <Fab variant='extended' size='large' className={classes.buttonSelected} color='primary' onClick={setJobType}>
+        <Button variant='contained' size='large' className={classes.buttonSelected} color='primary' onClick={setJobType}>
           {name}
-        </Fab>
+        </Button>
       ) : (
-        <Fab variant='extended' size='large' className={classes.button} color='secondary' onClick={setJobType}>
+        <Button variant='outlined' size='large' className={classes.button} color='secondary' onClick={setJobType}>
           {name}
-        </Fab>
+        </Button>
       )}
     </div>
   )
