@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme} from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core'
 import Grid, { GridSpacing } from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -12,11 +12,12 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     paper: {
-      height: 140,
-      width: 100,
-      backgroundColor: 'white',
+      height: 100,
+      width: 120,
+      backgroundColor: 'transparent',
       display: 'flex',
       flexDirection: 'column',
+      margin: 'auto',
     },
     control: {
       padding: theme.spacing(2),
@@ -25,33 +26,32 @@ const useStyles = makeStyles((theme: Theme) =>
       color: `${theme.palette.secondary.contrastText}`,
       display: 'flex',
       justifyContent: 'center',
+    },
+    skillIcon: {
+      height: '100%',
+      width: '100%',
+      mixBlendMode: 'screen',
     }
   }),
 );
 
 export default function LanguageTiles() {
-  const [spacing, setSpacing] = React.useState<GridSpacing>(2);
   const classes = useStyles(theme);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSpacing(Number((event.target as HTMLInputElement).value) as GridSpacing);
-  };
-
   return (
-    <Grid container className={classes.root} spacing={2}>
-      <Grid item xs={12}>
-        <Grid container justify="center" spacing={spacing}>
-          {skills.map((skill, index) => (
-            <Grid key={index} >
-              <Paper className={classes.paper}>
-                <Typography variant='h4' className={classes.skill}>
-                  {skill.title}
-                </Typography>
-              </Paper>
-            </Grid>
-          ))}
+    <Grid container justify="center" spacing={0}>
+      {skills.map((skill, index) => (
+        <Grid item key={index} xs={4}>
+          <div className={classes.paper}>
+            <>
+              <img src={skill.icon} alt={`${skill.title} Icon`} className={classes.skillIcon}/>
+              {/* <Typography variant='h4' className={classes.skill}>
+                {skill.title}
+              </Typography> */}
+            </>
+          </div>
         </Grid>
-      </Grid>
+      ))}
     </Grid>
   );
 }

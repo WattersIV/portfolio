@@ -142,43 +142,39 @@ interface ISkills {
 
 export const skills: ISkills[] = [
   {
-    icon: '',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     title: 'JS/Typescript ES6+'
   },
   {
-    icon: '',
-    title: 'JS/Typescript ES6+'
-  },
-  {
-    icon: '',
-    title: 'React'
-  },
-  {
-    icon: '',
-    title: 'Node.js'
-  },
-  {
-    icon: '',
-    title: 'Ruby'
-  },
-  {
-    icon: '',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg',
     title: 'CSS'
   },
   {
-    icon: '',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg',
     title: 'HTML'
   },
   {
-    icon: '',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg',
+    title: 'React'
+  },
+  {
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg',
+    title: 'Node.js'
+  },
+  {
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg',
+    title: 'Ruby on Rails'
+  },
+  {
+    icon: 'https://intuz-site.imgix.net/uploads/express.svg',
     title: 'Express'
   },
   {
-    icon: '',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg',
     title: 'MongoDB'
   },
   {
-    icon: '',
+    icon: 'https://symbols.getvecta.com/stencil_28/61_sql-database-generic.a9f12e2a30.svg',
     title: 'SQL'
   },
 ]

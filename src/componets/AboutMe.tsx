@@ -12,11 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
   skillsContainer: {
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     marginTop: '30px',
     justifyContent: 'space-between',
-    maxWidth: '500px',
-    margin: 'auto',
   },
   skillsList: {
     display: 'flex',
@@ -57,10 +55,10 @@ export default function AboutMe () {
         </Typography>
         <div className={classes.skillsContainer}>
           {/* Make these Tiles that jump or something when you hover and add a logo for each */}
-          <Typography variant='h3' className={classes.brightText}>
-            My Current Skills Include:
+          <Typography variant='h3' className={classes.brightText} align='center' >
+            Here are some of my skills
           </Typography>
-          <LanguageTiles />
+            <LanguageTiles />
         </div>
       </div> 
     </div>
