@@ -13,14 +13,17 @@ const useStyles = makeStyles((theme) => ({
   },
   resumeText: {
     color: `${theme.palette.primary.contrastText}`,
-  }
+    '&:hover': {
+      color: `${theme.palette.secondary.main}`,
+    },
+  },
 }))
 
 export default function ResumeButton(props: any) {
   const classes = useStyles(theme)
   return (
     <a href={resume} rel="noopener noreferrer" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
-      <Typography className={classes.resumeText} variant='h4' >
+      <Typography className={classes.resumeText} variant='subtitle1' >
         RESUME
       </Typography>
     </a>

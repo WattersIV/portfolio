@@ -43,12 +43,12 @@ export const theme = createMuiTheme({
       fontFamily: 'Calibre',
     },
     subtitle1: {
-      fontSize: '16px',
-      fontFamily: 'Quantico',
+      fontSize: '18px',
+      fontFamily: 'SF Mono',
     },
     subtitle2: {
       fontSize: '14px',
-      fontFamily: 'Quantico',
+      fontFamily: 'SF Mono',
     },
   },
 }) 

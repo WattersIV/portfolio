@@ -11,7 +11,10 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     color: `${theme.palette.primary.contrastText}`,
-  }
+    '&:hover': {
+      color: `${theme.palette.secondary.main}`,
+    },
+  },
 })) 
   
   
@@ -20,7 +23,7 @@ export default function NavButton (props: any) {
   const { name } = props
   return (
         <Button className={classes.button}  size='small' color='primary'>
-      <Typography className={classes.header} variant='h4' >
+      <Typography className={classes.header} variant='subtitle1' >
         {name}
       </Typography>
     </Button>

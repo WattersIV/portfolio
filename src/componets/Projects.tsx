@@ -28,7 +28,6 @@ export default function Projects () {
       </Typography>
       {projects.map((project, index) => {
         const inverse: boolean = index % 2 === 0 ? false : true 
-        console.log(inverse)
         return <Project project={project} inverse={inverse}/>
       })}
     </div>

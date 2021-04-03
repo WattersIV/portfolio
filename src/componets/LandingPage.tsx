@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
   aboutMe: {
     width: '500px',
     color: `${theme.palette.text.primary}`,
-  }
+  },
+  greenText: {
+    color: `${theme.palette.secondary.main}`,
+  },
 }))
 
 export default function LandingPage() {
@@ -42,7 +45,7 @@ export default function LandingPage() {
   return (
     <div className={classes.nameIntroductionContainer}>
       <div className={classes.nameAndPicture}>
-        <Typography variant='subtitle1' color='textPrimary'>
+        <Typography variant='subtitle1' className={classes.greenText}>
           Welcome! My name is
         </Typography>
         <Typography variant='h1' className={classes.brightText}>

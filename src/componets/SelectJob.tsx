@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   companyLink: {
     display: 'inline',
-    color: `${theme.palette.secondary.light}`,
+    color: `${theme.palette.secondary.main}`,
   },
   grayText: {
     color: `${theme.palette.text.secondary}`,

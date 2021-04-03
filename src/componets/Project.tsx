@@ -1,9 +1,9 @@
 import { Typography, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import ProjectDetails from './ProjectDetails'
-import communitySoccerPic from '../pictures/communitySoccerImg.png'
-import jungleRailsPic from '../pictures/jungleRailsImg.png'
-import schedulerPic from '../pictures/schedulerImg.png'
+import communitySoccerPic from '../pictures/communitySoccerScaled.png'
+import jungleRailsPic from '../pictures/jungleRailsScaled.png'
+import schedulerPic from '../pictures/schedulerScaled.png'
 
 const useStyles = makeStyles((theme) => ({
   projectCard: {

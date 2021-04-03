@@ -1,4 +1,4 @@
-import { Button } from '@material-ui/core'
+import { Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { emailAddy } from '../config'
 
@@ -19,7 +19,9 @@ export default function ContactButton () {
     <div className={classes.buttonWrapper}>
       <a href={`mailto:${emailAddy}`}>
         <Button variant='outlined' size='large' className={classes.button} color='secondary'>
-          Contact Me
+          <Typography variant='subtitle1' >
+            Contact Me
+          </Typography>
         </Button>
       </a>
     </div>
