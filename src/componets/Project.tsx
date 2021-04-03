@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
   picture: {
     maxHeight: '550px',
     maxWidth: '696px',
+    position: 'relative',
+    zIndex: 1,
   },
 }))
 
