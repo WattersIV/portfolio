@@ -1,5 +1,8 @@
 import { Typography, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import { githubURL } from '../config';
 
 const useStyles = makeStyles((theme) => ({
   description: {
@@ -12,8 +15,9 @@ const useStyles = makeStyles((theme) => ({
   techStackContainer: {
     display: 'flex',
     flexDirection: 'row',
-    paddingTop: '50px',
+    paddingTop: '25px',
     justifyContent: 'space-around',
+    paddingBottom: '10px',
   },
   descriptionContainer: {
     padding: '20px',
@@ -43,6 +47,12 @@ const useStyles = makeStyles((theme) => ({
   brightText: {
     color: `${theme.palette.primary.contrastText}`,
   },
+  github: {
+    fill: 'white',
+    '&:hover' : {
+      fill: `${theme.palette.secondary.main}`,
+    },
+  },
 }))
 
 
@@ -63,12 +73,18 @@ export default function ProjectDetails (props: any) {
         <div className={classes.techStack}>
           {project.stack.map((tech: any) => {
             return (
-              <Typography color='textPrimary' variant='subtitle1'>
+              <Typography color='textSecondary' variant='subtitle1'>
                 {tech} &nbsp;
               </Typography> 
             )
           })}
         </div> 
+      </div>
+      <div>
+        { project.githubURL && 
+        <a href={`${githubURL}`} aria-label={`${project.title} Github Code`} >
+          <GitHubIcon  className={classes.github}/>
+        </a>}
       </div>
     </div>
 

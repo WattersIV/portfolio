@@ -2,10 +2,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
 import { sectionPadding, titlePadding } from '../theme/theme'
-import SelectJob from './SelectJobOld'
 import JobInfo from './JobInfoOld'
 import React, { useState } from 'react'
-import VerticalTabs from './SelectJob'
+import SelectJob from './SelectJob'
 import { theme } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
@@ -36,19 +35,26 @@ const useStyles = makeStyles((theme) => ({
 export default function WorkExperience () {
   const classes = useStyles(theme)
   const [jobType, setJobType] = useState('Dev Jobs')
+  const [value, setValue] = React.useState(0);
+
+  const handleClick = (jobType: string) => {
+    setJobType(jobType)
+    setValue(0)
+  }
+
   return (
     <div className={classes.workExperienceWrapper} id='experience'>
       <Typography variant='h2' className={classes.title}>
         Work Experience
       </Typography>
       <div className={classes.buttonWrapper}>
-        <ExperinceButton name='Dev Jobs' setJobType={() => setJobType('Dev Jobs')} jobs={jobType}/>
-        <ExperinceButton name='Other Jobs' setJobType={() => setJobType('Other Jobs')} jobs={jobType}/>
-        <ExperinceButton name='Volunteering' setJobType={() => setJobType('Volunteering')} jobs={jobType}/>
+        <ExperinceButton name='Dev Jobs' setJobType={() => handleClick('Dev Jobs') } jobs={jobType}/>
+        <ExperinceButton name='Other Jobs' setJobType={() => handleClick('Other Jobs')} jobs={jobType}/>
+        <ExperinceButton name='Volunteering' setJobType={() => handleClick('Volunteering')} jobs={jobType}/>
       </div>
       <div className={classes.jobSelector}>
         <div>
-          <VerticalTabs jobs={jobType}/>
+          <SelectJob jobs={jobType} value={value} setValue={setValue} />
         </div>
       </div>
     </div>

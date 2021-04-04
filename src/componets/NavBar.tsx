@@ -94,10 +94,10 @@ export default function NavBar(props: any) {
             </Link>
           </div>
           <div className={classes.socials}>
-            <a href={`${linkedInURL}`} >
-              <LinkedInIcon className={classes.linkedIn} />
+            <a href={`${linkedInURL}`} aria-label="LinkedIn link">
+              <LinkedInIcon className={classes.linkedIn}/>
             </a>
-            <a href={`${githubURL}`} >
+            <a href={`${githubURL}`}  aria-label="Github link">
               <GitHubIcon className={classes.github} />
             </a>
           </div>

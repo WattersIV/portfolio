@@ -118,13 +118,13 @@ export const projects: Project[] = [
   {
     title: 'Community Soccer',
     description: "A web app to find soccer games in your community. This app allows for users to create, find and join soccer matches in their community. This app utilizes the players location to find events close to them and has chat functionailty.",
-    stack: ['Reactjs', 'Express', 'Nodejs', 'PostgreSQL'],
+    stack: ['React.js', 'Express', 'Node.js', 'PostgreSQL'],
     githubURL: 'https://github.com/WattersIV/community-sports',
   },
   {
     title: 'Scheduler',
     description: "A scheduling application that allows users to book interciews from a selected group of people. The app features a visualaltion of opening time slots throughout the day and week.",
-    stack: ['Reactjs', 'Express', 'Nodejs', 'PostgreSQL'],
+    stack: ['React.js', 'Express', 'Node.js', 'PostgreSQL'],
     githubURL: 'https://github.com/WattersIV/scheduler',
   },
   {
