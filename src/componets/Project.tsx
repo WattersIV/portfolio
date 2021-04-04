@@ -1,5 +1,6 @@
 import { Typography, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { theme } from '../theme/theme'
 import ProjectDetails from './ProjectDetails'
 import communitySoccerPic from '../pictures/communitySoccerScaled.png'
 import jungleRailsPic from '../pictures/jungleRailsScaled.png'
@@ -9,6 +10,16 @@ const useStyles = makeStyles((theme) => ({
   projectCard: {
     display: 'flex',
     justifyContent: 'flex-end',
+    position: 'relative',
+    backgroundColor: `${theme.palette.secondary.main}`,
+    width: '100%',
+    '&:hover': {
+      background: 'transparent',
+      '& img': {
+        filter: 'none',
+        mixBlendMode: 'normal',
+      },
+    },
   },
   projectContainer: {
     paddingTop: '30px',
@@ -21,12 +32,13 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '696px',
     position: 'relative',
     zIndex: 1,
+    mixBlendMode: 'multiply',
   },
 }))
 
 
 export default function Project (props: any) {
-  const classes = useStyles()
+  const classes = useStyles(theme)
   const { project, inverse } = props
   const projectPicture = project.title === 'Community Soccer' 
   ? communitySoccerPic
@@ -37,7 +49,7 @@ export default function Project (props: any) {
     <div className={classes.projectContainer}>
       <ProjectDetails inverse={inverse} project={project}/>
       <div className={classes.projectCard} >
-        <img src={projectPicture} alt={`${project.title} image`} className={classes.picture}/>
+          <img src={projectPicture} alt={`${project.title} image`} className={classes.picture}/>
       </div>
     </div>
   )
