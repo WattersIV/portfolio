@@ -71,9 +71,9 @@ export default function ProjectDetails (props: any) {
       </Paper>
       <div className={classes.techStackContainer}>
         <div className={classes.techStack}>
-          {project.stack.map((tech: any) => {
+          {project.stack.map((tech: any, index: any) => {
             return (
-              <Typography color='textSecondary' variant='subtitle1'>
+              <Typography color='textSecondary' variant='subtitle1' key={index}>
                 {tech} &nbsp;
               </Typography> 
             )

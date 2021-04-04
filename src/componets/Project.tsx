@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     backgroundColor: `${theme.palette.secondary.main}`,
     width: '100%',
+    height: '100%',
     '&:hover': {
       background: 'transparent',
       '& img': {
@@ -22,14 +23,18 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   projectContainer: {
-    paddingTop: '30px',
+    paddingTop: '80px',
+    display: 'flex',
+    justifyContent: 'space-between',
+    maxHeight: '550px',
+  },
+  firstProjectContainer: {
     display: 'flex',
     justifyContent: 'space-between',
     maxHeight: '550px',
   },
   picture: {
-    maxHeight: '550px',
-    maxWidth: '696px',
+    width: '100%',
     position: 'relative',
     zIndex: 1,
     mixBlendMode: 'multiply',
@@ -39,14 +44,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Project (props: any) {
   const classes = useStyles(theme)
-  const { project, inverse } = props
+  const { project, isFirst, inverse} = props
   const projectPicture = project.title === 'Community Soccer' 
   ? communitySoccerPic
   : project.title === 'Jungle Rails'
   ? jungleRailsPic
   : schedulerPic
+  console.log(isFirst)
   return (
-    <div className={classes.projectContainer}>
+    <div className={isFirst ? classes.firstProjectContainer : classes.projectContainer}>
       <ProjectDetails inverse={inverse} project={project}/>
       <div className={classes.projectCard} >
           <img src={projectPicture} alt={`${project.title} image`} className={classes.picture}/>

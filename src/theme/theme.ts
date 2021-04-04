@@ -8,7 +8,7 @@ export const theme = createMuiTheme({
     primary: {
       dark: '#040c16',
       main: '#0a192f',
-      light: '#0d2140',
+      light: '#112240',
       contrastText: '#fff',
     }, 
     secondary: {

@@ -6,7 +6,7 @@ import { theme } from '../theme/theme'
 
 const useStyles = makeStyles((theme) => ({
   sendMsgText: {
-    maxWidth: '600px',
+    maxWidth: '500px',
     paddingTop: '20px',
   },
   contactMeWrapper: {
@@ -26,10 +26,10 @@ export default function Contact () {
   return (
     <div className={classes.contactMeWrapper} id='contact'>
       <Typography variant='h2' align='center' className={classes.title}>
-        Send Me a Message
+        Get In Touch
       </Typography>
-      <Typography className={classes.sendMsgText} color='textPrimary' variant='h3'>
-        I am currently looking for oppertunities as of March 2021. Please Contact me via email to get in touch!
+      <Typography className={classes.sendMsgText} color='textPrimary' variant='h4'>
+        I am currently looking for oppertunities as of April 2021. You can click on the button below to send me and email and get it touch!
       </Typography>
       <ContactButton />
     </div>

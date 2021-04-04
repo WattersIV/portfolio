@@ -122,9 +122,9 @@ export default function SelectJob(props: any) {
           </Typography>
           <br />
           <br />
-          {job.keyPoints.map((point) => {
+          {job.keyPoints.map((point, index) => {
             return (
-              <Typography className={classes.grayText} variant='h4' align='left'>
+              <Typography className={classes.grayText} variant='h4' align='left' key={index}>
                 - {point}
                 <br />
                 <br />

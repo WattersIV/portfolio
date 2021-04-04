@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core'
+import { Typography, Divider } from '@material-ui/core'
 import { sectionPadding, titlePadding } from '../theme/theme'
 import { theme } from '../theme/theme'
 import LanguageTiles from './LanguageTiles'
@@ -35,7 +35,15 @@ const useStyles = makeStyles((theme) => ({
   textPicContainer: {
     display: 'flex',
     flexDirection: 'row',
-  }
+  },
+  divider: {
+    backgroundColor: '#233554',
+    width: '40%',
+    display: 'inline-flex',
+    alignSelf: 'center',
+    marginBottom: '20px',
+    marginLeft: '10px',
+  },
 }))
  
   
@@ -44,9 +52,12 @@ export default function AboutMe () {
 
   return (
     <div className={classes.aboutMeContainer} id='about'>
-      <Typography variant='h2' align='center' className={classes.title}>
-        About me
-      </Typography>
+      <div style={{ display: 'flex' }}> 
+        <Typography variant='h2' align='center' className={classes.title}>
+          About me
+        </Typography>
+        <Divider className={classes.divider}/>
+      </div>
       <div>
       <div className={classes.textPicContainer} >
         <div id='Text Container' style={{ display: 'flex', flexDirection: 'column' }}>

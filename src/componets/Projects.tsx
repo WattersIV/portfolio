@@ -22,13 +22,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Projects () {
   const classes = useStyles()
   return (
-    <div className={classes.projectsContainer} id='work'>
+    <div className={classes.projectsContainer} id='work' >
       <Typography variant='h2'  align='center' className={classes.title}>
         Projects I've Built
       </Typography>
       {projects.map((project, index) => {
-        const inverse: boolean = index % 2 === 0 ? false : true 
-        return <Project project={project} inverse={inverse}/>
+        const inverse: boolean = index % 2 === 0 ? false : true
+        const isFirst: boolean = index === 0    
+        return <Project key={index} project={project} inverse={inverse} isFirst={isFirst}/>
       })}
     </div>
   )
