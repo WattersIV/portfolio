@@ -39,7 +39,7 @@ export const theme = createMuiTheme({
       fontFamily: 'Calibre',
     },
     h4: {
-      fontSize: '18px',
+      fontSize: '20px',
       fontFamily: 'Calibre',
     },
     subtitle1: {
