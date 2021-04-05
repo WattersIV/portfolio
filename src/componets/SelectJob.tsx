@@ -64,7 +64,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   grayText: {
     color: `${theme.palette.text.secondary}`,
+    '&:focus': {
+      outline: 'none',
+      border: '1px solid white',
+    },
   },
+  whiteText: {
+    color: `${theme.palette.text.primary}`,
+    '&:focus': {
+      outline: 'none',
+      border: '1px solid white',
+    },
+  }
 }));
 
 export default function SelectJob(props: any) {
@@ -96,7 +107,7 @@ export default function SelectJob(props: any) {
             key={index}
             label={job.company} 
             {...a11yProps(index)} 
-            className={classes.grayText}/>
+            className={value === index ? classes.whiteText : classes.grayText}/>
           )
         })}
       </Tabs>

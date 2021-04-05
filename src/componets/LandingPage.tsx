@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import headshot from '../pictures/Headshot.jpg'
 import ContactButton from './ContactButton'
 import { theme } from '../theme/theme'
+import React, { useState, useEffect } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   nameIntroductionContainer: {
