@@ -8,6 +8,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { theme } from '../theme/theme'
 import useWindowSize from '../hooks/useWindowSize'
+import React, { useState, useEffect } from 'react'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -61,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
 function HideOnScroll(props: any) {
   const { children } = props;
   const trigger = useScrollTrigger();
+  const [isLoaded, setIsLoaded] = useState(false)
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
@@ -71,38 +73,49 @@ function HideOnScroll(props: any) {
 
 export default function NavBar(props: any) {
   const classes = useStyles(theme)
+  const [isLoaded, setIsLoaded] = useState(false)
   const { width } = useWindowSize()
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(true)
+    }, 100)
+  })
+
   return (
     <HideOnScroll {...props}>
-      <div className={classes.navBarContainer}>
-        <div id='wrapper' style={{ maxWidth: '1200px', display: 'flex', justifyContent: 'space-between', width: '100%', margin: 'auto' }} >
-          <div className={classes.resume}>
-            <ResumeButton />
+        <div className={classes.navBarContainer}>
+        <Slide direction="right" in={isLoaded} timeout={1000} mountOnEnter unmountOnExit>
+          <div id='wrapper' style={{ maxWidth: '1200px', display: 'flex', justifyContent: 'space-between', width: '100%', margin: 'auto' }} >
+            <div className={classes.resume}>
+              <ResumeButton />
+            </div>
+            <div id='scrollButtons' className={classes.scrollToButtons}>
+              <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
+                <NavButton name='About' />
+              </Link>
+              <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700}>
+                <NavButton name='Experience' />
+              </Link>
+              <Link activeClass="active" to="work" spy={true} smooth={true} duration={900}>
+                <NavButton name='My Work' />
+              </Link>
+              <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100}>
+                <NavButton name='Contact' />
+              </Link>
+            </div>
+            <div className={classes.socials}>
+              <a href={`${linkedInURL}`} aria-label="LinkedIn link">
+                <LinkedInIcon className={classes.linkedIn}/>
+              </a>
+              <a href={`${githubURL}`}  aria-label="Github link">
+                <GitHubIcon className={classes.github} />
+              </a>
+            </div>
           </div>
-          <div id='scrollButtons' className={classes.scrollToButtons}>
-            <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
-              <NavButton name='About' />
-            </Link>
-            <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700}>
-              <NavButton name='Experience' />
-            </Link>
-            <Link activeClass="active" to="work" spy={true} smooth={true} duration={900}>
-              <NavButton name='My Work' />
-            </Link>
-            <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100}>
-              <NavButton name='Contact' />
-            </Link>
-          </div>
-          <div className={classes.socials}>
-            <a href={`${linkedInURL}`} aria-label="LinkedIn link">
-              <LinkedInIcon className={classes.linkedIn}/>
-            </a>
-            <a href={`${githubURL}`}  aria-label="Github link">
-              <GitHubIcon className={classes.github} />
-            </a>
-          </div>
+    </Slide>
         </div>
-      </div>
-    </HideOnScroll>
+      </HideOnScroll>
+
   )
 }

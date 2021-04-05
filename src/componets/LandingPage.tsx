@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core'
+import { Typography, Grow } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import headshot from '../pictures/Headshot.jpg'
 import ContactButton from './ContactButton'
@@ -43,21 +43,30 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LandingPage() {
   const classes = useStyles(theme)
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(true)
+    }, 800)
+  }, [])
+
   return (
+      <Grow in={isLoaded} timeout={800}>
     <div className={classes.nameIntroductionContainer}>
-      <div className={classes.nameAndPicture}>
-        <Typography variant='subtitle1' className={classes.greenText}>
-          Welcome! My name is
-        </Typography>
-        <Typography variant='h1' className={classes.brightText}>
-          Bill Watters
-        </Typography>
-        <div style={{ flexDirection: 'row', display: 'inline-flex', justifyContent: 'space-between' }}>
-          <div className={classes.pictureContainer}>
-            <img src={headshot} alt="Bill's Headshot" className={classes.headshotPic} />
+        <div className={classes.nameAndPicture}>
+          <Typography variant='subtitle1' className={classes.greenText}>
+            Welcome! My name is
+          </Typography>
+          <Typography variant='h1' className={classes.brightText}>
+            Bill Watters
+          </Typography>
+          <div style={{ flexDirection: 'row', display: 'inline-flex', justifyContent: 'space-between' }}>
+            <div className={classes.pictureContainer}>
+              <img src={headshot} alt="Bill's Headshot" className={classes.headshotPic} />
+            </div>
           </div>
         </div>
-      </div>
       <div className={classes.landingSummary}>
         <Typography variant='h3' className={classes.aboutMe} >
           I am a Web Developer based in Toronto, ON.
@@ -67,5 +76,6 @@ export default function LandingPage() {
         </Typography>
       </div>
     </div>
+    </Grow>
   )
 }

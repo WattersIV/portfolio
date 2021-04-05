@@ -2,10 +2,11 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
 import { sectionPadding, titlePadding } from '../theme/theme'
-import JobInfo from './JobInfoOld'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import SelectJob from './SelectJob'
 import { theme } from '../theme/theme'
+//@ts-ignore
+import { useInViewport } from 'react-in-viewport'
 
 const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
@@ -32,10 +33,22 @@ const useStyles = makeStyles((theme) => ({
 })) 
   
   
-export default function WorkExperience () {
+export default function WorkExperience (props: {inViewport: boolean}) {
   const classes = useStyles(theme)
   const [jobType, setJobType] = useState('Dev Jobs')
   const [value, setValue] = React.useState(0);
+  const ref = useRef(null)
+  const {
+    inViewport,
+    enterCount,
+    leaveCount
+  } = useInViewport(
+    useRef,
+    options,
+    config = { disconnectOnLeave: true },
+    props
+  )
+
 
   const handleClick = (jobType: string) => {
     setJobType(jobType)
@@ -43,8 +56,8 @@ export default function WorkExperience () {
   }
 
   return (
-    <div className={classes.workExperienceWrapper} id='experience'>
-      <Typography variant='h2' className={classes.title}>
+    <div ref={ref} className={classes.workExperienceWrapper} id='experience' >
+      <Typography variant='h2' className={classes.title} >
         Work Experience
       </Typography>
       <div className={classes.buttonWrapper}>
