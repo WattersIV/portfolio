@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Fade } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
 import { sectionPadding, titlePadding } from '../theme/theme'
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import SelectJob from './SelectJob'
 import { theme } from '../theme/theme'
 
@@ -36,15 +36,21 @@ export default function WorkExperience (props: any) {
   const { inViewport, forwardedRef } = props;
   const [jobType, setJobType] = useState('Dev Jobs')
   const [value, setValue] = React.useState(0);
-  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   const handleClick = (jobType: string) => {
     setJobType(jobType)
     setValue(0)
   }
+  //Need var to stay true after observer finds it first time 
+  useEffect(() => {
+    if (inViewport === true) {
+      setIsVisible(true)
+    }
+  }, [inViewport])
 
   return (
-    <Fade in={inViewport} timeout={2200} >
+    <Fade in={isVisible} timeout={2200} >
     <div className={classes.workExperienceWrapper} id='experience' ref={forwardedRef}>
       <Typography variant='h2' className={classes.title} >
         Work Experience

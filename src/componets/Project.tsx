@@ -1,10 +1,11 @@
-import { Typography, Paper } from '@material-ui/core'
+import { Typography, Paper, Slide } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import { theme } from '../theme/theme'
 import ProjectDetails from './ProjectDetails'
 import communitySoccerPic from '../pictures/communitySoccerScaled.png'
 import jungleRailsPic from '../pictures/jungleRailsScaled.png'
 import schedulerPic from '../pictures/schedulerScaled.png'
+import React, { useEffect, useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
   projectCard: {
@@ -42,21 +43,33 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-export default function Project (props: any) {
+export default function Project(props: any) {
   const classes = useStyles(theme)
-  const { project, isFirst, inverse} = props
-  const projectPicture = project.title === 'Community Soccer' 
-  ? communitySoccerPic
-  : project.title === 'Jungle Rails'
-  ? jungleRailsPic
-  : schedulerPic
-  console.log(isFirst)
+  const [isVisible, setIsVisible] = useState(false)
+  const { project, isFirst, inverse, inViewport, forwardedRef } = props
+  const slideDirection = inverse ? 'left' : 'right'
+  const projectPicture = project.title === 'Community Soccer'
+    ? communitySoccerPic
+    : project.title === 'Jungle Rails'
+      ? jungleRailsPic
+      : schedulerPic
+  
+  //Need var to stay true after observer finds it first time 
+  useEffect(() => {
+    if (inViewport === true) {
+      setIsVisible(true)
+    }
+  }, [inViewport])
   return (
+    <span ref={forwardedRef}>
+    <Slide in={isVisible} direction={slideDirection} timeout={1500} mountOnEnter unmountOnExit>
     <div className={isFirst ? classes.firstProjectContainer : classes.projectContainer}>
-      <ProjectDetails inverse={inverse} project={project}/>
+      <ProjectDetails inverse={inverse} project={project} />
       <div className={classes.projectCard} >
-          <img src={projectPicture} alt={`${project.title} image`} className={classes.picture}/>
+        <img src={projectPicture} alt={`${project.title} image`} className={classes.picture} />
       </div>
     </div>
+    </Slide>
+    </span>
   )
 }

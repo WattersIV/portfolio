@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const WorkXpWrapper = handleViewport(WorkExperience, {}, {disconnectOnLeave: true})
+const WorkXpWrapper = handleViewport(WorkExperience, {}, { disconnectOnLeave: true })
+const ProjectsWrapper = handleViewport(Projects, {}, { disconnectOnLeave: true })
 
 function App() {
   const classes = useStyles(theme)
@@ -47,8 +48,8 @@ function App() {
         <div style={{backgroundColor: theme.palette.primary.main}}>
           <div className={classes.wrapper} >
             <AboutMe />
-            <WorkXpWrapper onEnterViewport={() => console.log('enter')} onLeaveViewport={() => console.log("[debug]: leave viewport.")} />
-            <Projects />
+            <WorkXpWrapper />
+            <ProjectsWrapper />
             <Contact />
             <Footer />
           </div>
