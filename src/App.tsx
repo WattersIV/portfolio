@@ -8,6 +8,7 @@ import Contact from './componets/Contact'
 import Footer from './componets/Footer'
 import NavBar from './componets/NavBar'
 import { theme } from './theme/theme'
+import handleViewport from 'react-in-viewport'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-
+const WorkXpWrapper = handleViewport(WorkExperience, {}, {disconnectOnLeave: true})
 
 function App() {
   const classes = useStyles(theme)
@@ -46,7 +47,7 @@ function App() {
         <div style={{backgroundColor: theme.palette.primary.main}}>
           <div className={classes.wrapper} >
             <AboutMe />
-            <WorkExperience />
+            <WorkXpWrapper onEnterViewport={() => console.log('enter')} onLeaveViewport={() => console.log("[debug]: leave viewport.")} />
             <Projects />
             <Contact />
             <Footer />

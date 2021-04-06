@@ -1,12 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography } from '@material-ui/core'
+import { Typography, Fade } from '@material-ui/core'
 import ExperinceButton from './ExperienceButton'
 import { sectionPadding, titlePadding } from '../theme/theme'
 import React, { useState, useRef } from 'react'
 import SelectJob from './SelectJob'
 import { theme } from '../theme/theme'
-//@ts-ignore
-import { useInViewport } from 'react-in-viewport'
 
 const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
@@ -33,22 +31,12 @@ const useStyles = makeStyles((theme) => ({
 })) 
   
   
-export default function WorkExperience (props: {inViewport: boolean}) {
+export default function WorkExperience (props: any) {
   const classes = useStyles(theme)
+  const { inViewport, forwardedRef } = props;
   const [jobType, setJobType] = useState('Dev Jobs')
   const [value, setValue] = React.useState(0);
   const ref = useRef(null)
-  const {
-    inViewport,
-    enterCount,
-    leaveCount
-  } = useInViewport(
-    useRef,
-    options,
-    config = { disconnectOnLeave: true },
-    props
-  )
-
 
   const handleClick = (jobType: string) => {
     setJobType(jobType)
@@ -56,7 +44,8 @@ export default function WorkExperience (props: {inViewport: boolean}) {
   }
 
   return (
-    <div ref={ref} className={classes.workExperienceWrapper} id='experience' >
+    <Fade in={inViewport} timeout={2200} >
+    <div className={classes.workExperienceWrapper} id='experience' ref={forwardedRef}>
       <Typography variant='h2' className={classes.title} >
         Work Experience
       </Typography>
@@ -71,5 +60,6 @@ export default function WorkExperience (props: {inViewport: boolean}) {
         </div>
       </div>
     </div>
+    </Fade>
   )
 }
