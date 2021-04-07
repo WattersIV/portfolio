@@ -22,7 +22,6 @@ export default function ResumeButton(props: any) {
           Resume
       </Typography>
       </Button>
-
     </a>
   )
 }

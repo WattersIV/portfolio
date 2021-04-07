@@ -112,26 +112,37 @@ interface Project {
   stack: string[],
   githubURL: string,
   link?: string,
+  finished: boolean
 }
 
 export const projects: Project[] = [
   {
+    title: 'Herdr',
+    description: 'This project is a Tinder-like app where users can swipe and talk to goats. It will also track what attributes are present on goats you tend to swipe right on.',
+    stack: [],
+    githubURL: 'https://github.com/csjohn1/herdr',
+    finished: false
+  },
+  {
     title: 'Community Soccer',
-    description: "A web app to find soccer games in your community. This app allows for users to create, find and join soccer matches in their community and chat with other users. This app utilizes the google maps API for the players location in order to find events close to them.",
+    description: "A web app to find soccer games in your community. This app allows for users to create, find and join soccer matches in their community. Users may also chat with each other directly in the app. This app utilizes the google maps API for the players location in order to find events close to them.",
     stack: ['React.js', 'Express', 'Node.js', 'PostgreSQL'],
     githubURL: 'https://github.com/WattersIV/community-sports',
+    finished: true
   },
   {
     title: 'Scheduler',
-    description: "A scheduling application that allows users to book interciews from a selected group of people. The app features a visualaltion of opening time slots throughout the day and week.",
+    description: "A scheduling application that allows users to book interviews from a selected group of interviewers. The app features a visualization of opening time slots throughout the day and week.",
     stack: ['React.js', 'Express', 'Node.js', 'PostgreSQL'],
     githubURL: 'https://github.com/WattersIV/scheduler',
+    finished: true
   },
   {
     title: 'Jungle Rails',
     description: "An ecommerce platform that uses the stripe API for buying and selling items. Owners are able to log into an admin portal to change prices and items.",
     stack: ['HTML', 'CSS', 'Ruby on Rails'],
     githubURL: 'https://github.com/WattersIV/jungle-rails',
+    finished: true
   }
 ]
 

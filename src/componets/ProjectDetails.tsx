@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
       fill: `${theme.palette.secondary.main}`,
     },
   },
+  projectUnderline: {
+    color: `${theme.palette.secondary.main}`,
+  }
 }))
 
 
@@ -64,6 +67,13 @@ export default function ProjectDetails (props: any) {
       <Typography color='textPrimary' variant='h3' align='center' className={classes.brightText}>
         {project.title}
       </Typography>
+      {project.finished ? (
+          null
+        ) : (
+          <Typography className={classes.projectUnderline} align='center' variant='subtitle1'>
+            Under construction
+          </Typography>
+        )}
       <Paper elevation={5} className={classes.descriptionCard}>
         <Typography color='textSecondary' variant='h4' className={classes.description}>
           {project.description}

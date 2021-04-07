@@ -1,5 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography, Slide, useScrollTrigger } from '@material-ui/core'
+import { Slide, useScrollTrigger, Fade } from '@material-ui/core'
 import NavButton from './NavButton'
 import ResumeButton from './ResumeButton'
 import { Link } from 'react-scroll'
@@ -52,24 +52,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   github: {
-    fill: 'white', 
-    height: '100%', 
-    fontSize: '40px', 
-    '&:hover' : {
+    fill: 'white',
+    height: '100%',
+    fontSize: '40px',
+    '&:hover': {
       fill: `${theme.palette.secondary.main}`,
     },
   },
   wrapper: {
     paddingLeft: '50px',
     paddingRight: '50px',
-    display: 'flex', 
-    justifyContent: 'space-between', 
-    width: '100%', 
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '100%',
     margin: 'auto'
   },
   logo: {
     position: 'absolute',
-    left: '55px', 
+    left: '55px',
     top: '25px',
     height: '50%',
   },
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
       outline: `1px solid ${theme.palette.secondary.main}`,
     }
   },
-  }))
+}))
 
 function HideOnScroll(props: any) {
   const { children } = props;
@@ -101,6 +101,7 @@ function HideOnScroll(props: any) {
 export default function NavBar(props: any) {
   const classes = useStyles(theme)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [renderLogo, setRenderLogo] = useState(false)
   const { width } = useWindowSize()
 
   useEffect(() => {
@@ -108,16 +109,23 @@ export default function NavBar(props: any) {
       setIsLoaded(true)
     }, 100)
   })
+  useEffect(() => {
+    setTimeout(() => {
+      setRenderLogo(true)
+    }, 1100)
+  })
 
   return (
     <HideOnScroll {...props}>
-        <div className={classes.navBarContainer}>
+      <div className={classes.navBarContainer}>
         <Slide direction="right" in={isLoaded} timeout={1000} mountOnEnter unmountOnExit>
           <div id='wrapper' className={classes.wrapper} >
-            <div className={classes.logoContainer} onClick={() => window.location.reload()} >
-              <Droplet />
-              <img src={logo} alt='logo Text' className={classes.logo} />
-            </div>
+            <Fade in={renderLogo} timeout={500} >
+              <div className={classes.logoContainer} onClick={() => window.location.reload()} >
+                <Droplet />
+                <img src={logo} alt='logo Text' className={classes.logo} />
+              </div>
+            </Fade>
             <div id='scrollButtons' className={classes.scrollToButtons}>
               <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
                 <NavButton name='About' />
@@ -137,16 +145,16 @@ export default function NavBar(props: any) {
                 <ResumeButton />
               </div>
               <a href={`${linkedInURL}`} aria-label="LinkedIn link">
-                <LinkedInIcon className={classes.linkedIn}/>
+                <LinkedInIcon className={classes.linkedIn} />
               </a>
-              <a href={`${githubURL}`}  aria-label="Github link">
+              <a href={`${githubURL}`} aria-label="Github link">
                 <GitHubIcon className={classes.github} />
               </a>
             </div>
           </div>
-    </Slide>
-        </div>
-      </HideOnScroll>
+        </Slide>
+      </div>
+    </HideOnScroll>
 
   )
 }

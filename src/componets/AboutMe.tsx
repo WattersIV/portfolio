@@ -79,12 +79,12 @@ export default function AboutMe () {
             </Typography>
             <br /> 
             <Typography variant='h4' className={classes.aboutMeText}>
-              In 2019, I graduated with a B.A. in Sociology. Shortly after graduating, I was introduced to software development and loved the problem solving and logical thinking work required in the field.
+              In 2019, I graduated with a B.A. in Sociology. Shortly after graduating, I was introduced to software development. I loved the problem solving and logical thinking work required in the field.
               I started learning how to code over a few months to see if the intrest would fade; but it only grew.
             </Typography>
             <br />
             <Typography variant='h4' className={classes.aboutMeText}>
-              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs.In January 2021 after finishing bootcamp, I recieved an internship oppertunity at {' '}
+              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. In January 2021 after finishing bootcamp, I recieved an internship oppertunity at {' '}
               <a href={'https://www.honeybeehub.io'} target="_blank" rel="noreferrer">
                 <Typography variant='h4' className={classes.aboutMeLink}> 
                   Honeybeehub

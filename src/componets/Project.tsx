@@ -5,6 +5,7 @@ import ProjectDetails from './ProjectDetails'
 import communitySoccerPic from '../pictures/communitySoccerScaled.png'
 import jungleRailsPic from '../pictures/jungleRailsScaled.png'
 import schedulerPic from '../pictures/schedulerScaled.png'
+import construction from '../pictures/devConstruction.png'
 import React, { useEffect, useState } from 'react'
 
 const useStyles = makeStyles((theme) => ({
@@ -52,8 +53,9 @@ export default function Project(props: any) {
     ? communitySoccerPic
     : project.title === 'Jungle Rails'
       ? jungleRailsPic
-      : schedulerPic
-  
+      : project.finished 
+        ? schedulerPic
+        : construction
   //Need var to stay true after observer finds it first time 
   useEffect(() => {
     if (inViewport === true) {
@@ -65,8 +67,8 @@ export default function Project(props: any) {
     <Slide in={isVisible} direction={slideDirection} timeout={1500} mountOnEnter unmountOnExit>
     <div className={isFirst ? classes.firstProjectContainer : classes.projectContainer}>
       <ProjectDetails inverse={inverse} project={project} />
-      <div className={classes.projectCard} >
-        <img src={projectPicture} alt={`${project.title} image`} className={classes.picture} />
+      <div className={classes.projectCard} style={project.finished ? {} : {backgroundColor: 'transparent' }} >
+        <img src={projectPicture} alt={`${project.title} image`} className={classes.picture} style={project.finished ? {} : { mixBlendMode: 'normal' }} />
       </div>
     </div>
     </Slide>
