@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { theme } from '../theme/theme'
 import anime from 'animejs/lib/anime.es.js';
 import React, { useState, useEffect } from 'react'
-import logo from '../pictures/BW.svg'
+import logo from '../pictures/IV.svg'
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
