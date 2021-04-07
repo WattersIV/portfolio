@@ -6,6 +6,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     width: '200px',
     marginTop: '50px',
+    textTransform: 'none',
   },
   buttonWrapper: {
     display: 'flex',

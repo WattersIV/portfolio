@@ -16,7 +16,7 @@ export const devJobs: IJobs[] = [
     company: 'Honeybee',
     title: 'Full Stack Developer Intern',
     start: 'Jan 2021',
-    end: 'April 2021',
+    end: 'Present',
     link: 'https://www.honeybeehub.io',
     keyPoints: [
       'Led the front end development for a referral system which generated a 36% increase in active users.',

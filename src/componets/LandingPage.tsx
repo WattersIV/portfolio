@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pictureContainer: {
     height: '300px',
-    width: '300px',
+    width: '100%',
   },
   headshotPic: {
     maxWidth: '100%',
@@ -59,9 +59,9 @@ export default function LandingPage() {
             Welcome! My name is
           </Typography>
           <Typography variant='h1' className={classes.brightText}>
-            Bill Watters
+            Bill Watters IV
           </Typography>
-          <div style={{ flexDirection: 'row', display: 'inline-flex', justifyContent: 'space-between' }}>
+          <div style={{ flexDirection: 'row', display: 'inline-flex', justifyContent: 'space-between', alignSelf: 'center', }}>
             <div className={classes.pictureContainer}>
               <img src={headshot} alt="Bill's Headshot" className={classes.headshotPic} />
             </div>

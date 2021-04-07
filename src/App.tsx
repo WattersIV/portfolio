@@ -41,7 +41,7 @@ function App() {
   return (
     <div className={classes.root}>
       {isLoading ? (
-        <Loader />
+        <Loader animationDone={() => setIsLoading(false)} />
       ) : (
           <>
             <div className={classes.landingBackground}>

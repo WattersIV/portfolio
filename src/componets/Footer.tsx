@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Footer () {
   const classes = useStyles()
   return (
-    <Typography variant='subtitle1' color='primary' style={{ paddingTop: '100px' }}>
+    <Typography variant='subtitle1' color='textPrimary' style={{ paddingTop: '100px' }}>
       Built and Designed by Bill Watters 2021
     </Typography>
   )

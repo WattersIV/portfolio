@@ -5,14 +5,8 @@ import { theme } from '../theme/theme'
 
 
 const useStyles = makeStyles((theme) => ({
-  button: {
-    width: '100px',
-    height: '40px',
-    marginLeft: '10px',
-    backgroundColor: `${theme.palette.primary.main}`,
-  },
   resumeText: {
-    color: `${theme.palette.primary.contrastText}`,
+    color: `${theme.palette.secondary.main}`,
     '&:hover': {
       color: `${theme.palette.secondary.main}`,
     },
@@ -23,9 +17,12 @@ export default function ResumeButton(props: any) {
   const classes = useStyles(theme)
   return (
     <a href={resume} rel="noopener noreferrer" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
-      <Typography className={classes.resumeText} variant='subtitle1' >
-        RESUME
+      <Button variant='outlined' size='small' color='secondary' style={{ textTransform: "none"  }}>
+        <Typography className={classes.resumeText} variant='subtitle1' style={{ textTransform: 'none' }}>
+          Resume
       </Typography>
+      </Button>
+
     </a>
   )
 }

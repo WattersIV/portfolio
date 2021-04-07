@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100px',
     height: '40px',
     marginLeft: '10px',
+    textTransform: 'none',
   },
   header: {
     color: `${theme.palette.primary.contrastText}`,
@@ -15,14 +16,14 @@ const useStyles = makeStyles((theme) => ({
       color: `${theme.palette.secondary.main}`,
     },
   },
-})) 
-  
-  
-export default function NavButton (props: any) {
+}))
+
+
+export default function NavButton(props: any) {
   const classes = useStyles(theme)
   const { name } = props
   return (
-        <Button className={classes.button}  size='small' color='primary'>
+    <Button className={classes.button} size='small' color='primary'>
       <Typography className={classes.header} variant='subtitle1' >
         {name}
       </Typography>

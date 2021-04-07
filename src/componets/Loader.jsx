@@ -40,14 +40,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function Loader() {
+export default function Loader({ animationDone } ) {
   const classes = useStyles(theme)
   const animate = () => {
     const loader = anime.timeline({
-      complete: () => console.log('DONE'),
+      complete: () => animationDone(),
     });
 
     loader
+    //Tracer
       .add({
         targets: '#path',
         delay: 300,
@@ -55,12 +56,21 @@ export default function Loader() {
         easing: 'easeInOutQuart',
         strokeDashoffset: [anime.setDashoffset, 0],
       })
+      //Letters pop out
       .add({
         targets: '#letters',
-        delay: 500,
-        duration: 1000,
+        duration: 700,
         easing: 'easeInOutQuart',
         opacity: 1,
+      })
+      //Logo gets small and disapears
+      .add({
+        targets: '#logo',
+        delay: 500,
+        duration: 300,
+        easing: 'easeInOutQuart',
+        opacity: 0,
+        scale: 0.1, 
       })
   }
   useEffect(() => {
