@@ -29,7 +29,7 @@ export default function Contact () {
         Get In Touch
       </Typography>
       <Typography className={classes.sendMsgText} color='textPrimary' variant='h4'>
-        I am currently looking for oppertunities as of April 2021. You can click on the button below to send me and email and get it touch!
+        I am currently looking for my next oppertunity. If you would like to get in touch with me click the button below to send me an email!
       </Typography>
       <ContactButton />
     </div>

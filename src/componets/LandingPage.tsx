@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   aboutMe: {
-    width: '500px',
+    width: '535px',
     color: `${theme.palette.text.primary}`,
   },
   greenText: {
@@ -69,8 +69,8 @@ export default function LandingPage() {
         </div>
       <div className={classes.landingSummary}>
         <Typography variant='h3' className={classes.aboutMe} >
-          I am a Web Developer based in Toronto, ON.
-          I specialize in making interactive web applications using React and Node.js.
+          I am a web developer based in Toronto, ON.
+          I specialize in bringing ideas to life by building beautiful, interactive products for the web.
             <br />
           <ContactButton />
         </Typography>

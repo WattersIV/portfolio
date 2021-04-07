@@ -117,7 +117,7 @@ interface Project {
 export const projects: Project[] = [
   {
     title: 'Community Soccer',
-    description: "A web app to find soccer games in your community. This app allows for users to create, find and join soccer matches in their community. This app utilizes the players location to find events close to them and has chat functionailty.",
+    description: "A web app to find soccer games in your community. This app allows for users to create, find and join soccer matches in their community and chat with other users. This app utilizes the google maps API for the players location in order to find events close to them.",
     stack: ['React.js', 'Express', 'Node.js', 'PostgreSQL'],
     githubURL: 'https://github.com/WattersIV/community-sports',
   },
@@ -129,7 +129,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Jungle Rails',
-    description: "An ecommerce platform that uses stripe for buying and selling items. Owners are able to log into an admin portal to change prices and items. ",
+    description: "An ecommerce platform that uses the stripe API for buying and selling items. Owners are able to log into an admin portal to change prices and items.",
     stack: ['HTML', 'CSS', 'Ruby on Rails'],
     githubURL: 'https://github.com/WattersIV/jungle-rails',
   }

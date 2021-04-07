@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
   aboutMeText: {
     color: `${theme.palette.text.primary}`,
   },
+  aboutMeLink: {
+    color: `${theme.palette.secondary.main}`,
+    display: 'inline',
+  },
   textPicContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -71,15 +75,22 @@ export default function AboutMe () {
         <div className={classes.textPicContainer} >
           <div id='Text Container' style={{ display: 'flex', flexDirection: 'column' }}>
             <Typography variant='h4' className={classes.aboutMeText}>
-            Hi there! I’m Bill, a Web Developer based in Toronto, ON.
+            Hi there! I’m Bill, a software developer based in Toronto, ON.
             </Typography>
             <br /> 
             <Typography variant='h4' className={classes.aboutMeText}>
-              Shortly after graduating with a B.A. in Sociology from Brock University, I was introduced to software development and my life changed. I fell in love with the complexity and problem solving presented in the challenges of coding.
+              In 2019, I graduated with a B.A. in Sociology. Shortly after graduating, I was introduced to software development and loved the problem solving and logical thinking work required in the field.
+              I started learning how to code over a few months to see if the intrest would fade; but it only grew.
             </Typography>
             <br />
             <Typography variant='h4' className={classes.aboutMeText}>
-              I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. After graduating from the bootcamp, I recieved an internship oppertunity at Honeybeehub where I was able to develop many features used on the website today.  
+              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs.In January 2021 after finishing bootcamp, I recieved an internship oppertunity at {' '}
+              <a href={'https://www.honeybeehub.io'} target="_blank" rel="noreferrer">
+                <Typography variant='h4' className={classes.aboutMeLink}> 
+                  Honeybeehub
+                </Typography>
+                </a> 
+              {' '} where I was able to develop many features used on the website today.  
             </Typography>
           </div>
           <div>

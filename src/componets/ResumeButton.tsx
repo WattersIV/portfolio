@@ -17,7 +17,7 @@ export default function ResumeButton(props: any) {
   const classes = useStyles(theme)
   return (
     <a href={resume} rel="noopener noreferrer" target="_blank" style={{ display: 'flex', alignItems: 'center' }}>
-      <Button variant='outlined' size='small' color='secondary' style={{ textTransform: "none"  }}>
+      <Button variant='outlined' size='small' color='secondary' style={{ textTransform: "none" }}>
         <Typography className={classes.resumeText} variant='subtitle1' style={{ textTransform: 'none' }}>
           Resume
       </Typography>
