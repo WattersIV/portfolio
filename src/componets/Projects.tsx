@@ -5,6 +5,7 @@ import { sectionPadding, titlePadding } from '../theme/theme'
 import { projects } from '../config'
 import handleViewport from 'react-in-viewport'
 import React, { useState, useEffect } from 'react'
+import { useScreenSize } from '../hooks/useScreenSize'
 
 const useStyles = makeStyles((theme) => ({
   projectsContainer: {
@@ -26,6 +27,7 @@ export default function Projects (props: any) {
   const classes = useStyles()
   const { inViewport, forwardedRef } = props;
   const [isVisible, setIsVisible] = useState(false)
+  const { isMobile } = useScreenSize()
 
   //Need var to stay true after observer finds it first time 
   useEffect(() => {
@@ -37,7 +39,7 @@ export default function Projects (props: any) {
   return (
     <div className={classes.projectsContainer} id='work' >
       <Fade in={isVisible} timeout={600}>
-        <Typography variant='h2' align='center' className={classes.title} ref={forwardedRef}>
+        <Typography variant={isMobile ? 'h3' :'h2'} align='center' className={classes.title} ref={forwardedRef}>
           Projects I've Built
         </Typography>
       </Fade>

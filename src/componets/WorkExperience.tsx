@@ -4,7 +4,9 @@ import ExperinceButton from './ExperienceButton'
 import { sectionPadding, titlePadding } from '../theme/theme'
 import React, { useState, useEffect } from 'react'
 import SelectJob from './SelectJob'
+import SelectJobMobile from './SelectJobMobile'
 import { theme } from '../theme/theme'
+import { useScreenSize } from '../hooks/useScreenSize'
 
 const useStyles = makeStyles((theme) => ({
   buttonWrapper: {
@@ -37,6 +39,7 @@ export default function WorkExperience (props: any) {
   const [jobType, setJobType] = useState('Dev Jobs')
   const [value, setValue] = React.useState(0);
   const [isVisible, setIsVisible] = useState(false)
+  const { isMobile } = useScreenSize()
 
   const handleClick = (jobType: string) => {
     setJobType(jobType)
@@ -52,7 +55,7 @@ export default function WorkExperience (props: any) {
   return (
     <Fade in={isVisible} timeout={2200} >
     <div className={classes.workExperienceWrapper} id='experience' ref={forwardedRef}>
-      <Typography variant='h2' className={classes.title} >
+      <Typography variant={isMobile ? 'h3' :'h2'} className={classes.title} >
         Work Experience
       </Typography>
       <div className={classes.buttonWrapper}>
@@ -61,8 +64,12 @@ export default function WorkExperience (props: any) {
         <ExperinceButton name='Volunteering' setJobType={() => handleClick('Volunteering')} jobs={jobType}/>
       </div>
       <div className={classes.jobSelector}>
-        <div>
-          <SelectJob jobs={jobType} value={value} setValue={setValue} />
+        <div style={isMobile ? { width: '100%' } : {} }>
+          {isMobile ? (
+            <SelectJobMobile jobs={jobType} value={value} setValue={setValue} />
+          ) : ( 
+            <SelectJob jobs={jobType} value={value} setValue={setValue} />
+          )} 
         </div>
       </div>
     </div>

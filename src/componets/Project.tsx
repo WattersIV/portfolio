@@ -7,6 +7,7 @@ import jungleRailsPic from '../pictures/jungleRailsScaled.png'
 import schedulerPic from '../pictures/schedulerScaled.png'
 import construction from '../pictures/devConstruction.png'
 import React, { useEffect, useState } from 'react'
+import { useScreenSize } from '../hooks/useScreenSize'
 
 const useStyles = makeStyles((theme) => ({
   projectCard: {
@@ -23,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
         mixBlendMode: 'normal',
       },
     },
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'flex-end',
+      position: 'static',
+      backgroundColor: 'transparent',
+    }
   },
   projectContainer: {
     paddingTop: '80px',
@@ -47,13 +53,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Project(props: any) {
   const classes = useStyles(theme)
   const [isVisible, setIsVisible] = useState(false)
+  const { isMobile } = useScreenSize()
   const { project, isFirst, inverse, inViewport, forwardedRef } = props
   const slideDirection = inverse ? 'left' : 'right'
   const projectPicture = project.title === 'Community Soccer'
     ? communitySoccerPic
     : project.title === 'Jungle Rails'
       ? jungleRailsPic
-      : project.finished 
+      : project.finished
         ? schedulerPic
         : construction
   //Need var to stay true after observer finds it first time 
@@ -64,14 +71,16 @@ export default function Project(props: any) {
   }, [inViewport])
   return (
     <span ref={forwardedRef}>
-    <Slide in={isVisible} direction={slideDirection} timeout={1500} mountOnEnter unmountOnExit>
-    <div className={isFirst ? classes.firstProjectContainer : classes.projectContainer}>
-      <ProjectDetails inverse={inverse} project={project} />
-      <div className={classes.projectCard} style={project.finished ? {} : {backgroundColor: 'transparent' }} >
-        <img src={projectPicture} alt={`${project.title} image`} className={classes.picture} style={project.finished ? {} : { mixBlendMode: 'normal' }} />
-      </div>
-    </div>
-    </Slide>
+      <Slide in={isVisible} direction={slideDirection} timeout={1500} mountOnEnter unmountOnExit>
+        <div className={isFirst ? classes.firstProjectContainer : classes.projectContainer}>
+          <ProjectDetails inverse={inverse} project={project} />
+            {!isMobile && (
+            <div className={classes.projectCard} style={project.finished ? {} : { backgroundColor: 'transparent' }} >
+              <img src={projectPicture} alt={`${project.title} image`} className={classes.picture} style={project.finished ? {} : { mixBlendMode: 'normal' }} />
+            </div>
+            )}
+        </div>
+      </Slide>
     </span>
   )
 }

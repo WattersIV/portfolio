@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +8,7 @@ import Box from '@material-ui/core/Box';
 import { devJobs, otherJobs, volunteering} from '../config'
 import { theme } from '../theme/theme'
 import { useScreenSize } from '../hooks/useScreenSize';
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -16,17 +18,13 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
-  const { isMobile } = useScreenSize()
 
   return (
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      style={{
-        width: '750px',
-      }}
-      aria-labelledby={`vertical-tab-${index}`}
+      id={`scrollable-force-tabpanel-${index}`}
+      aria-labelledby={`scrollable-force-tab-${index}`}
       {...other}
     >
       {value === index && (
@@ -40,17 +38,16 @@ function TabPanel(props: TabPanelProps) {
 
 function a11yProps(index: any) {
   return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
+    id: `scrollable-force-tab-${index}`,
+    'aria-controls': `scrollable-force-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    //backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-    height: '400px',
+    width: '100%',
+    fontSize: '10px',
     backgroundColor: 'transparent',
   },
   tabs: {
@@ -77,10 +74,21 @@ const useStyles = makeStyles((theme: Theme) => ({
       outline: 'none',
       border: '1px solid white',
     },
+  },
+  appBar: {
+    '.MuiPaper-root': {
+      backgroundColor: 'transparent',      
+    },
+    '.MuiAppBar-colorDefault' : {
+      backgroundColor: 'transparent',
+    },
+    '& svg': {
+      fill: `${theme.palette.secondary.main}`,
+    }
   }
 }));
 
-export default function SelectJob(props: any) {
+export default function SelectJobMobile(props: any) {
   const classes = useStyles(theme);
   const { isMobile } = useScreenSize()
   const { jobs, value, setValue } = props
@@ -88,32 +96,36 @@ export default function SelectJob(props: any) {
   ? devJobs 
   : jobs === 'Other Jobs' 
   ? otherJobs 
-  : volunteering 
+  : volunteering  
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
 
   return (
-    <div className={classes.root} key={1}>
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Companies I've worked for"
-        className={classes.tabs}
-      >
+    <div className={classes.root}>
+      <AppBar position="static" className={classes.appBar}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="on"
+          indicatorColor="primary"
+          aria-label="Companies I've worked for"
+          className={classes.tabs}
+        >
         {jobsToRender.map((job, index) => {
           return (
             <Tab
             key={index}
-            label={job.company} 
+            label={job.company}
+            style={{ fontSize: '12px' }} 
             {...a11yProps(index)} 
             className={value === index ? classes.whiteText : classes.grayText}/>
           )
         })}
-      </Tabs>
+        </Tabs>
+      </AppBar>
       {jobsToRender.map((job, index) => {
         return (
         <TabPanel value={value} index={index} key={index}>

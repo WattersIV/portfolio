@@ -42,6 +42,10 @@ export const theme = createMuiTheme({
       fontSize: '20px',
       fontFamily: 'Calibre',
     },
+    h5: {
+      fontSize: '18px',
+      fontFamily: 'Calibre',
+    },
     subtitle1: {
       fontSize: '18px',
       fontFamily: 'SF Mono',

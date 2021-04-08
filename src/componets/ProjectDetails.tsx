@@ -1,8 +1,8 @@
 import { Typography, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { githubURL } from '../config';
+import { useScreenSize } from '../hooks/useScreenSize';
 
 const useStyles = makeStyles((theme) => ({
   description: {
@@ -55,6 +55,10 @@ const useStyles = makeStyles((theme) => ({
   },
   projectUnderline: {
     color: `${theme.palette.secondary.main}`,
+  },
+  mobileContainer: {
+    display: 'flex',
+    flexDirection: 'column',
   }
 }))
 
@@ -62,8 +66,9 @@ const useStyles = makeStyles((theme) => ({
 export default function ProjectDetails (props: any) {
   const classes = useStyles()
   const { inverse, project } = props
+  const { isMobile } = useScreenSize()
   return (
-    <div className={ inverse ? classes.inverseDescriptionContainer : classes.descriptionContainer } >
+    <div className={ isMobile ? classes.mobileContainer : inverse ? classes.inverseDescriptionContainer : classes.descriptionContainer } >
       <Typography color='textPrimary' variant='h3' align='center' className={classes.brightText}>
         {project.title}
       </Typography>

@@ -5,6 +5,7 @@ import Grid, { GridSpacing } from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { skills } from '../config'
 import { theme } from '../theme/theme'
+import { useScreenSize } from '../hooks/useScreenSize';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,6 +35,10 @@ const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         transform: 'translateY(-8px)',
       },
+      [theme.breakpoints.down('md')]: {
+        height: '70%',
+        width: '70%',
+      }
     },
   }),
 );
@@ -41,9 +46,10 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function LanguageTiles() {
   const classes = useStyles(theme);
   const [showText, setShowText] = useState("")
+  const { isMobile } = useScreenSize()
 
   return (
-    <Grid container justify="center" spacing={0} style={{ marginTop: '15px' }}>
+    <Grid container justify="center" spacing={0} style={isMobile ? { marginTop: '15px', paddingLeft: '20px' } : { marginTop: '15px' }}>
       {skills.map((skill, index) => (
         <Grid item key={index} xs={4} style={{ height: '140px' }}>
           <div className={classes.paper}>

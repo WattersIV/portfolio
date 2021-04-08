@@ -4,12 +4,16 @@ import headshot from '../pictures/Headshot.jpg'
 import ContactButton from './ContactButton'
 import { theme } from '../theme/theme'
 import React, { useState, useEffect } from 'react'
+import { useScreenSize } from '../hooks/useScreenSize'
 
 const useStyles = makeStyles((theme) => ({
   nameIntroductionContainer: {
     display: 'flex',
     width: '100%',
     marginTop: '100px',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+    }
   },
   pictureContainer: {
     height: '300px',
@@ -24,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-flex',
     width: '50%',
     alignItems: 'flex-end',
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    }
   },
   brightText: {
     color: `${theme.palette.primary.contrastText}`,
@@ -35,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
   aboutMe: {
     width: '535px',
     color: `${theme.palette.text.primary}`,
+    [theme.breakpoints.down('md')]: {
+      marginTop: '25px',
+    }
   },
   greenText: {
     color: `${theme.palette.secondary.main}`,
@@ -44,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
 export default function LandingPage() {
   const classes = useStyles(theme)
   const [isLoaded, setIsLoaded] = useState(false)
+  const { isMobile } = useScreenSize()
 
   useEffect(() => {
     setTimeout(() => {
@@ -58,17 +69,19 @@ export default function LandingPage() {
           <Typography variant='subtitle1' className={classes.greenText}>
             Welcome! My name is
           </Typography>
-          <Typography variant='h1' className={classes.brightText}>
+          <Typography variant='h1' className={classes.brightText} style={isMobile ? {fontSize: '55px'} : {}}>
             Bill Watters IV
           </Typography>
+            {!isMobile && (
           <div style={{ flexDirection: 'row', display: 'inline-flex', justifyContent: 'space-between', alignSelf: 'center', }}>
             <div className={classes.pictureContainer}>
               <img src={headshot} alt="Bill's Headshot" className={classes.headshotPic} />
             </div>
           </div>
+            )}
         </div>
       <div className={classes.landingSummary}>
-        <Typography variant='h3' className={classes.aboutMe} >
+        <Typography variant={isMobile ? 'h4' : 'h3'} className={classes.aboutMe} >
           I am a web developer based in Toronto, ON.
           I specialize in bringing ideas to life by building beautiful, interactive products for the web.
             <br />

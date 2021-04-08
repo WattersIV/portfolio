@@ -7,10 +7,10 @@ import { githubURL, linkedInURL } from '../config'
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { theme } from '../theme/theme'
-import useWindowSize from '../hooks/useWindowSize'
+import MenuIcon from '@material-ui/icons/Menu';
 import React, { useState, useEffect } from 'react'
 import logo from '../pictures/IV.svg'
-import droplet from '../pictures/water-drop.svg'
+import { useScreenSize } from '../hooks/useScreenSize'
 
 const useStyles = makeStyles((theme) => ({
   navBarContainer: {
@@ -65,13 +65,20 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    margin: 'auto'
+    margin: 'auto',
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: '20px',
+      paddingRight: '20px',
+    }
   },
   logo: {
     position: 'absolute',
     left: '55px',
     top: '25px',
     height: '50%',
+    [theme.breakpoints.down('md')]: {
+      left: '25px',
+    }
   },
   logoContainer: {
     '&:hover, &:focus': {
@@ -102,8 +109,7 @@ export default function NavBar(props: any) {
   const classes = useStyles(theme)
   const [isLoaded, setIsLoaded] = useState(false)
   const [renderLogo, setRenderLogo] = useState(false)
-  const { width } = useWindowSize()
-
+  const { isMobile } = useScreenSize()
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true)
@@ -126,6 +132,10 @@ export default function NavBar(props: any) {
                 <img src={logo} alt='logo Text' className={classes.logo} />
               </div>
             </Fade>
+            {isMobile ? (
+              <MenuIcon style={{ fill: `${theme.palette.secondary.main}` }} />
+            ) : (
+              <>
             <div id='scrollButtons' className={classes.scrollToButtons}>
               <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
                 <NavButton name='About' />
@@ -151,6 +161,8 @@ export default function NavBar(props: any) {
                 <GitHubIcon className={classes.github} />
               </a>
             </div>
+            </>
+            )}
           </div>
         </Slide>
       </div>
