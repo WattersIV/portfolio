@@ -38,11 +38,11 @@ export default function Projects (props: any) {
   
   return (
     <div className={classes.projectsContainer} id='work' >
-      <Fade in={isVisible} timeout={600}>
+      {/* <Fade in={isVisible} timeout={600}> */}
         <Typography variant={isMobile ? 'h3' :'h2'} align='center' className={classes.title} ref={forwardedRef}>
           Projects I've Built
         </Typography>
-      </Fade>
+      {/* </Fade> */}
       {projects.map((project, index) => {
         const inverse: boolean = index % 2 === 0 ? false : true
         const isFirst: boolean = index === 0    
