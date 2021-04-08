@@ -151,7 +151,13 @@ export default function NavBar(props: any) {
       setRenderLogo(true)
     }, 1100)
   })
-
+  useEffect(() => {
+    if ( openNav) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [openNav])
   return (
     <HideOnScroll {...props}>
       <div className={classes.navBarContainer}>
