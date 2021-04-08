@@ -7,3 +7,4 @@ declare module 'react-in-viewport' {
   export = handleViewport
 }
 declare module 'animejs/lib/anime.es.js';
+declare module 'react-scroll';
