@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/static/js/main.b8b7f050.chunk.js",
+    "main.js.map": "/static/js/main.b8b7f050.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.06b5035f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.06b5035f.js.map",
+    "static/js/2.59382a2c.chunk.js": "/static/js/2.59382a2c.chunk.js",
+    "static/js/2.59382a2c.chunk.js.map": "/static/js/2.59382a2c.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.59382a2c.chunk.js.LICENSE.txt": "/static/js/2.59382a2c.chunk.js.LICENSE.txt",
+    "static/media/Headshot.834b700f.jpg": "/static/media/Headshot.834b700f.jpg",
+    "static/media/IV.dc41a07f.svg": "/static/media/IV.dc41a07f.svg",
+    "static/media/communitySoccerScaled.76cf9373.png": "/static/media/communitySoccerScaled.76cf9373.png",
+    "static/media/devConstruction.6c64333a.png": "/static/media/devConstruction.6c64333a.png",
+    "static/media/jungleRailsScaled.6a829ab9.png": "/static/media/jungleRailsScaled.6a829ab9.png",
+    "static/media/resume.56eec2b3.pdf": "/static/media/resume.56eec2b3.pdf",
+    "static/media/schedulerScaled.eea9c6e8.png": "/static/media/schedulerScaled.eea9c6e8.png",
+    "static/media/softwareEngineer.d20128c2.png": "/static/media/softwareEngineer.d20128c2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.06b5035f.js",
+    "static/js/2.59382a2c.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.b8b7f050.chunk.js"
+  ]
+}
