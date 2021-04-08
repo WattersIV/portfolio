@@ -5,12 +5,14 @@ import ResumeButton from './ResumeButton'
 import { Link } from 'react-scroll'
 import { githubURL, linkedInURL } from '../config'
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import CloseIcon from '@material-ui/icons/Close';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { theme } from '../theme/theme'
 import MenuIcon from '@material-ui/icons/Menu';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import logo from '../pictures/IV.svg'
 import { useScreenSize } from '../hooks/useScreenSize'
+import OutsideClick from '../hooks/outsideClick'
 
 const useStyles = makeStyles((theme) => ({
   navBarContainer: {
@@ -23,11 +25,26 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: `${theme.palette.primary.main}`,
     zIndex: 99,
   },
+  mobileContainer: {
+    height: '100vh',
+    width: '80vw',
+    backgroundColor: `${theme.palette.primary.main}`,
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'fixed',
+    top: 0,
+    right: 0,
+    zIndex: 99,
+  },
   resume: {
     display: 'flex',
   },
   scrollToButtons: {
     display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
+      marginTop: '50vw',
+    }
   },
   rightNav: {
     display: 'flex',
@@ -40,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   },
   socials: {
     display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',      
+    }
   },
   linkedIn: {
     fill: 'white',
@@ -91,13 +111,20 @@ const useStyles = makeStyles((theme) => ({
       outline: `1px solid ${theme.palette.secondary.main}`,
     }
   },
+  closeIcon: {
+    fill: `${theme.palette.secondary.main}`,
+    height: '50px',
+    width: '50px',
+    position: 'absolute',
+    right: 0,
+  }
 }))
 
 function HideOnScroll(props: any) {
   const { children } = props;
   const trigger = useScrollTrigger();
   const [isLoaded, setIsLoaded] = useState(false)
-
+  const { isMobile } = useScreenSize()
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       {children}
@@ -109,7 +136,11 @@ export default function NavBar(props: any) {
   const classes = useStyles(theme)
   const [isLoaded, setIsLoaded] = useState(false)
   const [renderLogo, setRenderLogo] = useState(false)
+  const sidebarRef = useRef(null)
+  const outsideSideBar = OutsideClick(sidebarRef)
+  const [openNav, setOpenNav] = useState(false)
   const { isMobile } = useScreenSize()
+
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true)
@@ -132,42 +163,72 @@ export default function NavBar(props: any) {
                 <img src={logo} alt='logo Text' className={classes.logo} />
               </div>
             </Fade>
+            { isMobile && outsideSideBar && openNav ? setOpenNav(false) : null}
             {isMobile ? (
-              <MenuIcon style={{ fill: `${theme.palette.secondary.main}` }} />
+              <MenuIcon style={{ fill: `${theme.palette.secondary.main}`, height: '35px', width: '35px' }} onClick={() => setOpenNav(true)} />
             ) : (
-              <>
-            <div id='scrollButtons' className={classes.scrollToButtons}>
-              <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
-                <NavButton name='About' />
-              </Link>
-              <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700}>
-                <NavButton name='Experience' />
-              </Link>
-              <Link activeClass="active" to="work" spy={true} smooth={true} duration={900}>
-                <NavButton name='My Work' />
-              </Link>
-              <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100}>
-                <NavButton name='Contact' />
-              </Link>
-            </div>
-            <div className={classes.socials}>
-              <div className={classes.resume} >
-                <ResumeButton />
+                <>
+                  <div id='scrollButtons' className={classes.scrollToButtons}>
+                    <Link activeClass="active" to="about" spy={true} smooth={true} duration={500}>
+                      <NavButton name='About' />
+                    </Link>
+                    <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700}>
+                      <NavButton name='Experience' />
+                    </Link>
+                    <Link activeClass="active" to="work" spy={true} smooth={true} duration={900}>
+                      <NavButton name='My Work' />
+                    </Link>
+                    <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100}>
+                      <NavButton name='Contact' />
+                    </Link>
+                  </div>
+                  <div className={classes.socials}>
+                    <div className={classes.resume} >
+                      <ResumeButton />
+                    </div>
+                    <a href={`${linkedInURL}`} aria-label="LinkedIn link">
+                      <LinkedInIcon className={classes.linkedIn} />
+                    </a>
+                    <a href={`${githubURL}`} aria-label="Github link">
+                      <GitHubIcon className={classes.github} />
+                    </a>
+                  </div>
+                </>
+              )}
+            {openNav && (
+              <div className={classes.mobileContainer} ref={sidebarRef}>
+                <CloseIcon className={classes.closeIcon} onClick={() => setOpenNav(false)}/>
+                <div id='scrollButtons' className={classes.scrollToButtons}>
+                  <Link activeClass="active" to="about" spy={true} smooth={true} duration={500} onClick={() => setOpenNav(false)}>
+                    <NavButton name='About' />
+                  </Link>
+                  <Link activeClass="active" to="experience" spy={true} smooth={true} duration={700} onClick={() => setOpenNav(false)}>
+                    <NavButton name='Experience' />
+                  </Link>
+                  <Link activeClass="active" to="work" spy={true} smooth={true} duration={900} onClick={() => setOpenNav(false)}>
+                    <NavButton name='My Work' />
+                  </Link>
+                  <Link activeClass="active" to="contact" spy={true} smooth={true} duration={1100} onClick={() => setOpenNav(false)}>
+                    <NavButton name='Contact' />
+                  </Link>
+                </div>
+                <div className={classes.socials}>
+                  <div className={classes.resume} >
+                    <ResumeButton />
+                  </div>
+                  <a href={`${linkedInURL}`} aria-label="LinkedIn link">
+                    <LinkedInIcon className={classes.linkedIn} />
+                  </a>
+                  <a href={`${githubURL}`} aria-label="Github link">
+                    <GitHubIcon className={classes.github} />
+                  </a>
+                </div>
               </div>
-              <a href={`${linkedInURL}`} aria-label="LinkedIn link">
-                <LinkedInIcon className={classes.linkedIn} />
-              </a>
-              <a href={`${githubURL}`} aria-label="Github link">
-                <GitHubIcon className={classes.github} />
-              </a>
-            </div>
-            </>
             )}
           </div>
         </Slide>
       </div>
     </HideOnScroll>
-
   )
 }
 

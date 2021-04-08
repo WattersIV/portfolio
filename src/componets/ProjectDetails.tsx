@@ -76,7 +76,7 @@ export default function ProjectDetails (props: any) {
           null
         ) : (
           <Typography className={classes.projectUnderline} align='center' variant='subtitle1'>
-            Under construction
+            Under Construction
           </Typography>
         )}
       <Paper elevation={5} className={classes.descriptionCard}>

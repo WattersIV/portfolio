@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Typography, Button } from '@material-ui/core'
 import { theme } from '../theme/theme'
+import { useScreenSize } from '../hooks/useScreenSize'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -9,6 +10,10 @@ const useStyles = makeStyles((theme) => ({
     height: '40px',
     marginLeft: '10px',
     textTransform: 'none',
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+      marginBottom: '15px',
+    }
   },
   header: {
     color: `${theme.palette.primary.contrastText}`,
@@ -21,10 +26,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavButton(props: any) {
   const classes = useStyles(theme)
+  const { isMobile } = useScreenSize()
   const { name } = props
   return (
     <Button className={classes.button} size='small' color='primary'>
-      <Typography className={classes.header} variant='subtitle1' >
+      <Typography className={classes.header} variant={isMobile ? 'h3' : 'subtitle1'} >
         {name}
       </Typography>
     </Button>
