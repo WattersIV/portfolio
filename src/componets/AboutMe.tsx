@@ -9,9 +9,12 @@ import { useScreenSize } from '../hooks/useScreenSize'
 
 const useStyles = makeStyles((theme) => ({
   aboutMeContainer: {
-    width: '100%',
+    width: '70%',
     paddingTop: `${sectionPadding}`,
     paddingBottom: `${sectionPadding}`,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    }
   },
   skillsContainer: {
     display: 'flex',
@@ -82,11 +85,11 @@ export default function AboutMe () {
             <br /> 
             <Typography variant={isMobile ? 'h5': 'h4' } className={classes.aboutMeText}>
               In 2019, I graduated with a B.A. in Sociology. Shortly after graduating, I was introduced to software development. I loved the problem solving and logical thinking work required in the field.
-              I started learning how to code over a few months to see if the intrest would fade; but it only grew.
+              I started learning how to code over a few months to see if the interest would fade; but it only grew.
             </Typography>
             <br />
             <Typography variant={isMobile ? 'h5': 'h4' } className={classes.aboutMeText}>
-              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. In January 2021 after finishing bootcamp, I recieved an internship oppertunity at {' '}
+              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. In January 2021 after finishing bootcamp, I recieved an internship opportunity at {' '}
               <a href={'https://www.honeybeehub.io'} target="_blank" rel="noreferrer">
                 <Typography variant={isMobile ? 'h5': 'h4' } className={classes.aboutMeLink}> 
                   Honeybeehub
