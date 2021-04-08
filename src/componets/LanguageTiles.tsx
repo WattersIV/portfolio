@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         transform: 'translateY(-8px)',
       },
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('sm')]: {
         height: '70%',
         width: '70%',
       }

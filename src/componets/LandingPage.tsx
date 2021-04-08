@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '100%',
     marginTop: '100px',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     }
   },
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-flex',
     width: '50%',
     alignItems: 'flex-end',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       width: '100%',
     }
   },
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   aboutMe: {
     width: '535px',
     color: `${theme.palette.text.primary}`,
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       marginTop: '25px',
     }
   },

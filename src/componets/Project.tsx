@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         mixBlendMode: 'normal',
       },
     },
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       justifyContent: 'flex-end',
       position: 'static',
       backgroundColor: 'transparent',

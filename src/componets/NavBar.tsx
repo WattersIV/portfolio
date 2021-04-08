@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   scrollToButtons: {
     display: 'flex',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
       marginTop: '50vw',
     }
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   socials: {
     display: 'flex',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',      
     }
   },
@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     width: '100%',
     margin: 'auto',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       paddingLeft: '20px',
       paddingRight: '20px',
     }
@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
     left: '55px',
     top: '25px',
     height: '50%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       left: '25px',
     }
   },
