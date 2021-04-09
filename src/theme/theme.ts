@@ -28,23 +28,23 @@ export const theme = createMuiTheme({
   typography: {
     h1: {
       fontSize: '64px',
-      fontFamily: 'Calibre',
+      fontFamily: 'sans-serif',
     },
     h2: {
       fontSize: '48px',
-      fontFamily: 'Calibre',
+      fontFamily: 'sans-serif',
     },
     h3: {
       fontSize: '30px',
-      fontFamily: 'Calibre',
+      fontFamily: 'sans-serif',
     },
     h4: {
       fontSize: '20px',
-      fontFamily: 'Calibre',
+      fontFamily: 'sans-serif',
     },
     h5: {
       fontSize: '18px',
-      fontFamily: 'Calibre',
+      fontFamily: 'sans-serif',
     },
     subtitle1: {
       fontSize: '18px',
