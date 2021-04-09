@@ -26,33 +26,42 @@ export const theme = createMuiTheme({
     },
   },
   typography: {
+    fontFamily: [
+      "Calibre",
+      "San Francisco",
+      "SF Pro Text",
+      "-apple-system",
+      "system-ui",
+      "sans-serif",
+    ].join(','),
     h1: {
       fontSize: '64px',
-      fontFamily: 'sans-serif',
     },
     h2: {
       fontSize: '48px',
-      fontFamily: 'sans-serif',
     },
     h3: {
       fontSize: '30px',
-      fontFamily: 'sans-serif',
     },
     h4: {
       fontSize: '20px',
-      fontFamily: 'sans-serif',
     },
     h5: {
       fontSize: '18px',
-      fontFamily: 'sans-serif',
     },
     subtitle1: {
       fontSize: '18px',
-      fontFamily: 'SF Mono',
+      fontFamily: [
+        "SF Mono","Fira Code","Fira Mono","Roboto Mono","monospace",
+
+      ].join(','),
     },
     subtitle2: {
       fontSize: '14px',
-      fontFamily: 'SF Mono',
+      fontFamily: [
+        "SF Mono","Fira Code","Fira Mono","Roboto Mono","monospace",
+
+      ].join(','),
     },
   },
 }) 
