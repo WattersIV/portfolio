@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: `${theme.palette.primary.main}`,
     backgroundSize: '100vw',
     height: '60vh',
+    minHeight: '550px',
+    [theme.breakpoints.down('sm')]: {
+      minHeight: 0
+    }
   },
 }))
 
