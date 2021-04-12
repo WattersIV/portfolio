@@ -10,6 +10,7 @@ import NavBar from './componets/NavBar'
 import Loader from './componets/Loader'
 import { theme } from './theme/theme'
 import handleViewport from 'react-in-viewport'
+import './globalCSS.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {

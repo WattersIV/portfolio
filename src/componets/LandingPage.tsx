@@ -82,7 +82,7 @@ export default function LandingPage() {
         </div>
       <div className={classes.landingSummary}>
         <Typography variant={isMobile ? 'h4' : 'h3'} className={classes.aboutMe} >
-          I am a web developer based in Toronto, ON.
+          I am a software developer based in Toronto, ON.
           I specialize in bringing ideas to life by building beautiful, interactive products for the web.
             <br />
           <ContactButton />
