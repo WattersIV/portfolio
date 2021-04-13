@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     height: '60vh',
     minHeight: '550px',
     [theme.breakpoints.down('sm')]: {
-      minHeight: 0
+      minHeight: '330px',
     }
   },
 }))

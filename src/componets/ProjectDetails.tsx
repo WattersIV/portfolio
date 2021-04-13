@@ -88,7 +88,7 @@ export default function ProjectDetails (props: any) {
         <div className={classes.techStack}>
           {project.stack.map((tech: any, index: any) => {
             return (
-              <Typography color='textSecondary' variant='subtitle1' key={index}>
+              <Typography color='textSecondary' variant={isMobile ? 'subtitle2' : 'subtitle1'} key={index}>
                 {tech} &nbsp;
               </Typography> 
             )

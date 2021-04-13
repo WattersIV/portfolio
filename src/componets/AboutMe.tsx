@@ -89,7 +89,7 @@ export default function AboutMe () {
             </Typography>
             <br />
             <Typography variant={isMobile ? 'h5': 'h4' } className={classes.aboutMeText}>
-              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. In January 2021 after finishing bootcamp, I recieved an internship opportunity at {' '}
+              In September 2020, I quit my job working at a group home to attend a web development bootcamp full time at Lighthouse Labs. In January 2021 after finishing bootcamp, I received an internship opportunity at {' '}
               <a href={'https://www.honeybeehub.io'} target="_blank" rel="noreferrer">
                 <Typography variant={isMobile ? 'h5': 'h4' } className={classes.aboutMeLink}> 
                   Honeybeehub

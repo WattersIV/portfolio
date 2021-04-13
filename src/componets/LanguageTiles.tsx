@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme: Theme) =>
       color: `${theme.palette.primary.contrastText}`,
       display: 'flex',
       justifyContent: 'center',
+      [theme.breakpoints.down('sm')]: {
+        height: '70%',
+        width: '70%',
+      }
     },
     skillIcon: {
       height: '100px',
