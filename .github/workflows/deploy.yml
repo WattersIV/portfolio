@@ -13,5 +13,5 @@ jobs:
       - uses: action/setup-node@v1
         with: 
           node-version: 14.15.1
-      - run: npm run build
-      - run: gh-pages -d build
+      - run: npm run predeploy
+      - run: npm run deploy
