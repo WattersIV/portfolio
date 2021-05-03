@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 const WorkXpWrapper = handleViewport(WorkExperience, {}, { disconnectOnLeave: true })
-const ProjectsWrapper = handleViewport(Projects, {}, { disconnectOnLeave: true })
 
 function App() {
   const classes = useStyles(theme)
@@ -63,7 +62,7 @@ function App() {
               <div className={classes.wrapper} >
                 <AboutMe />
                 <WorkXpWrapper />
-                <ProjectsWrapper />
+                <Projects />
                 <Contact />
                 <Footer />
               </div>

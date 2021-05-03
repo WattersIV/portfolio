@@ -69,6 +69,7 @@ export default function Project(props: any) {
       setIsVisible(true)
     }
   }, [inViewport])
+  console.log(inViewport)
   return (
     <span ref={forwardedRef}>
       <Slide in={isVisible} direction={slideDirection} timeout={1500} mountOnEnter unmountOnExit>

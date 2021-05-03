@@ -21,32 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const ProjectWrapper = handleViewport(Project, {}, { disconnectOnLeave: true} )
+const ProjectWrapper = handleViewport(Project, {}, { disconnectOnLeave: true })
 
-export default function Projects (props: any) {
+export default function Projects(props: any) {
   const classes = useStyles()
-  const { inViewport, forwardedRef } = props;
-  const [isVisible, setIsVisible] = useState(false)
   const { isMobile } = useScreenSize()
 
-  //Need var to stay true after observer finds it first time 
-  useEffect(() => {
-    if (inViewport === true) {
-      setIsVisible(true)
-    }
-  }, [inViewport])
-  
   return (
     <div className={classes.projectsContainer} id='work' >
-      {/* <Fade in={isVisible} timeout={600}> */}
-        <Typography variant={isMobile ? 'h3' :'h2'} align='center' className={classes.title} ref={forwardedRef}>
-          Projects I've Built
+      <Typography variant={isMobile ? 'h3' : 'h2'} align='center' className={classes.title} >
+        Projects I've Built
         </Typography>
-      {/* </Fade> */}
       {projects.map((project, index) => {
         const inverse: boolean = index % 2 === 0 ? false : true
-        const isFirst: boolean = index === 0    
-        return <ProjectWrapper key={index} project={project} inverse={inverse} isFirst={isFirst}/>
+        const isFirst: boolean = index === 0
+        return <ProjectWrapper key={index} project={project} inverse={inverse} isFirst={isFirst} />
       })}
     </div>
   )
